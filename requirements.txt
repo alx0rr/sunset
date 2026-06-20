@@ -1,0 +1,6 @@
+pyrotgfork
+tgcrypto
+python-dotenv
+pyrogram
+pyyaml
+git+https://github.com/altamino/altamino.py.git
