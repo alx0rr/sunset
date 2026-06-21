@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+from time import time
 
 load_dotenv()
 
@@ -23,3 +24,5 @@ ALTAMINO_DEVICE_ID: str = os.getenv("ALTAMINO_DEVICE_ID")
 
 LOG_LVL: str = os.getenv("LOG_LVL", "20")
 ENABLE_FILE_LOGGING: str = os.getenv("ENABLE_FILE_LOGGING", "0")
+
+STARTUP = time()
