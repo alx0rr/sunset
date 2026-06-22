@@ -1,0 +1,29 @@
+lang: "Русский"
+telegram:
+  welcome:
+    |
+    hello
+  owner_only: "Только для владельца"
+  admin_only: "Только для администраторов"
+  links:
+    unsupported: "Данный ресурс не поддерживается для модерации на данный момент"
+    usage: "Использование: `/mod https://altamino.top/...`"
+    invalid: "❌ Это не ссылка на Altamino."
+    processing: "Обработка..."
+  altamino:
+    set: "🔗 Привязать Altamino аккаунт"
+    remove: "❌ Отвязать Altamino аккаунт"
+  adm:
+    add:
+      usage: "Использование: `/admin_add @username`"
+      exists: "{target_name} уже является администратором"
+      added: "✅ {target_name} добавлен в список администраторов"
+    remove:
+      usage: "Использование: `/admin_remove @username`"
+      removed: "❌ {target_name} удалён из списка администраторов"
+      not_exists: "{target_name} не является администратором"
+    langs:
+      unknown: "❌ Неизвестный язык. Доступные: {langs}"
+      btn_select: "🌐 Выберите язык интерфейса:"
+      set: "✅ Язык установлен: {lang}"
+      change: "🌐 Изменить язык"

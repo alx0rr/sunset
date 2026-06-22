@@ -20,5 +20,5 @@ def t(code: str, lang: str = "en") -> str:
         data = data.get(key, {})
     return data if isinstance(data, str) else code
 
-def get_language() -> str:
-    return "en"
+def get_langs_list() -> list[str]:
+    return list(_locales.keys())

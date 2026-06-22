@@ -1,0 +1,26 @@
+lang: "English"
+telegram:
+  owner_only: "Owner only"
+  admin_only: "Admins only"
+  links:
+    unsupported: "This resource is not supported for moderation at the moment"
+    usage: "Usage: `/mod https://altamino.top/...`"
+    invalid: "❌ This is not an Altamino link."
+    processing: "Processing..."
+  altamino:
+    set: "🔗 Link Altamino account"
+    remove: "❌ Unlink Altamino account"
+  adm:
+    add:
+      usage: "Usage: `/admin_add @username`"
+      exists: "{target_name} is already an administrator"
+      added: "✅ {target_name} has been added to the admin list"
+    remove:
+      usage: "Usage: `/admin_remove @username`"
+      removed: "❌ {target_name} has been removed from the admin list"
+      not_exists: "{target_name} is not an administrator"
+    langs:
+      unknown: "❌ Unknown language. Available: {langs}"
+      btn_select: "🌐 Select interface language:"
+      set: "✅ Language set: {lang}"
+      change: "🌐 Change language"
