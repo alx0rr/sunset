@@ -12,11 +12,6 @@ from src.utils.db import get_language
 from src.utils.i18n import t
 from src.utils.fsm import get_state, set_state, get_data, update_data, clear
 
-
-# ---------------------------------------------------------------------------
-# States
-# ---------------------------------------------------------------------------
-
 class CC:
     name    = "cc:name"
     aminoid = "cc:aminoid"
@@ -26,19 +21,11 @@ class CC:
     ALL = {name, aminoid, agent, editing}
 
 
-# ---------------------------------------------------------------------------
-# Custom filter: пользователь в активном CC-состоянии
-# ---------------------------------------------------------------------------
-
 async def _in_cc_state(_, __, message: Message) -> bool:
     return get_state(message.from_user.id) in CC.ALL
 
 in_cc_state = filters.create(_in_cc_state)
 
-
-# ---------------------------------------------------------------------------
-# Keyboards
-# ---------------------------------------------------------------------------
 
 def _preview_keyboard(lang: str) -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup([
@@ -65,10 +52,6 @@ def _error_keyboard(lang: str) -> InlineKeyboardMarkup:
     ])
 
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
 FIELD_LABELS = {
     "name":    "telegram.community.create.btn_edit_name",
     "aminoid": "telegram.community.create.btn_edit_aminoid",
@@ -82,11 +65,6 @@ def _preview_text(data: dict, lang: str) -> str:
         agent=data.get("agent", "—"),
     )
 
-
-# ---------------------------------------------------------------------------
-# /create_community — entry point
-# ---------------------------------------------------------------------------
-
 @app.on_message(filters.command("create_community"))
 @admin_only
 @private_only
@@ -98,10 +76,6 @@ async def create_community_handler(_, message: Message):
 
     await message.reply(t("telegram.community.create.start", lang))
 
-
-# ---------------------------------------------------------------------------
-# Text input — только личка + только если в активном состоянии
-# ---------------------------------------------------------------------------
 
 @app.on_message(filters.text & filters.private & in_cc_state & ~filters.command(""))
 async def community_input_handler(_, message: Message):
@@ -134,10 +108,6 @@ async def community_input_handler(_, message: Message):
         data = get_data(user_id)
         await message.reply(_preview_text(data, lang), reply_markup=_preview_keyboard(lang))
 
-
-# ---------------------------------------------------------------------------
-# Callbacks
-# ---------------------------------------------------------------------------
 
 @app.on_callback_query(filters.regex(r"^cc:edit:(\w+)$"))
 @admin_only
@@ -214,11 +184,3 @@ async def cc_cancel_callback(_, query: CallbackQuery):
     clear(user_id)
     await query.edit_message_text(t("telegram.community.create.cancelled", lang))
     await query.answer()
-
-
-# ---------------------------------------------------------------------------
-# Link handler
-# ---------------------------------------------------------------------------
-
-async def handle_community(reply: Message, link_info, lang) -> None:
-    await reply.edit_text(t("telegram.links.unsupported", lang))

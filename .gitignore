@@ -11,6 +11,6 @@ dist/
 *.dist-info
 
 
-*.env
+.env
 
 bot*
