@@ -1,26 +1,87 @@
 lang: "English"
 telegram:
-  owner_only: "Owner only"
-  admin_only: "Admins only"
+  welcome: |
+    👋 Hi! I'm a bot for managing Altamino.
+  owner_only: "🚫 Owner only"
+  admin_only: "🚫 Admins only"
+  private_only: "🔒 This command is only available in private messages with the bot."
   links:
     unsupported: "This resource is not supported for moderation at the moment"
     usage: "Usage: `/mod https://altamino.top/...`"
     invalid: "❌ This is not an Altamino link."
-    processing: "Processing..."
+    processing: "⏳ Processing..."
   altamino:
     set: "🔗 Link Altamino account"
     remove: "❌ Unlink Altamino account"
   adm:
     add:
-      usage: "Usage: `/admin_add @username`"
+      usage: "Usage: `/admin_add userId`"
       exists: "{target_name} is already an administrator"
       added: "✅ {target_name} has been added to the admin list"
     remove:
-      usage: "Usage: `/admin_remove @username`"
+      usage: "Usage: `/admin_remove userId`"
       removed: "❌ {target_name} has been removed from the admin list"
       not_exists: "{target_name} is not an administrator"
     langs:
       unknown: "❌ Unknown language. Available: {langs}"
       btn_select: "🌐 Select interface language:"
-      set: "✅ Language set: {lang}"
+      set: "✅ Language set: "
       change: "🌐 Change language"
+  community:
+    create:
+      start: "🏗 Creating a community\n\nEnter the **name** of the community:"
+      ask_aminoid: "Great! Now enter the **Amino ID** (Latin characters, no spaces):"
+      ask_agent: "Enter the **agent link** (global Altamino profile):"
+      preview: |
+        📋 **Check the details:**
+
+        🏷 Name: {name}
+        🔑 Amino ID: {aminoid}
+        👤 Agent: {agent}
+      btn_create: "✅ Create"
+      btn_edit_name: "✏️ Name"
+      btn_edit_aminoid: "✏️ Amino ID"
+      btn_edit_agent: "✏️ Agent"
+      btn_cancel: "🚫 Cancel"
+      creating: "⏳ Creating community..."
+      success: "✅ Community **{name}** has been successfully created!"
+      cancelled: "🚫 Creation cancelled."
+      error: "❌ Error: {error}\n\nEdit the details or cancel."
+      edit_prompt: "✏️ Enter a new value for **{field}**:"
+      missing_fields: "⚠️ Please fill in the required fields: {fields}"
+
+  profile:
+    panel_community: "👤 User moderation panel"
+    panel_global: "👤 Global user panel"
+    btn_ban: "🔨 Ban"
+    btn_unban: "✅ Unban"
+    btn_agent: "⭐ Agent"
+    btn_leader: "👑 Leader"
+    btn_curator: "🛡 Curator"
+    btn_unpromote: "📉 Remove role"
+    btn_ban_global: "🔨 Block"
+    btn_unban_global: "✅ Unblock"
+    banned: "✅ User has been banned."
+    unbanned: "✅ User has been unbanned."
+    promoted_agent: "✅ Appointed as agent."
+    promoted_leader: "✅ Appointed as leader."
+    promoted_curator: "✅ Appointed as curator."
+    unpromoted: "✅ Role removed."
+    error: "❌ Error: {error}"
+
+  reports:
+    ask_text: "📝 Describe the issue:"
+    ask_photos: "📎 Attach photos (optional) or press Send:"
+    photo_added: "✅ Photo added ({n}). Add more or submit the report."
+    only_photos: "⚠️ Only photos can be attached."
+    sent: "✅ Report #{id} submitted. Thank you!"
+    cancelled: "🚫 Submission cancelled."
+    card: "📨 Report #{id}\n👤 {name} (id: {user_id})\n\n{text}"
+    btn_write: "💬 Write"
+    btn_close: "✅ Close"
+    btn_send: "📨 Submit"
+    btn_cancel: "🚫 Cancel"
+    list_header: "📋 Open reports: {total}"
+    empty: "✅ No open reports."
+    closed: "✅ Report #{id} closed."
+    not_found: "❌ Report not found."

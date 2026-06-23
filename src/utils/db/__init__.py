@@ -1,9 +1,9 @@
 from __future__ import annotations
-
 from contextlib import contextmanager
 from datetime import datetime
 import sqlite3
 from src.config import DB_PATH
+
 
 @contextmanager
 def get_db():
@@ -28,10 +28,31 @@ def init_db() -> None:
                 added_at      TEXT    NOT NULL
             )
         """)
+        db.execute("""
+            CREATE TABLE IF NOT EXISTS reports (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id     INTEGER NOT NULL,
+                username    TEXT,
+                text        TEXT,
+                status      TEXT    NOT NULL DEFAULT 'open',
+                created_at  TEXT    NOT NULL
+            )
+        """)
+        db.execute("""
+            CREATE TABLE IF NOT EXISTS report_photos (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                report_id   INTEGER NOT NULL REFERENCES reports(id) ON DELETE CASCADE,
+                file_id     TEXT    NOT NULL
+            )
+        """)
 
 
 init_db()
 
+
+# ---------------------------------------------------------------------------
+# Admins
+# ---------------------------------------------------------------------------
 
 def admin_exists(user_id: int) -> bool:
     with get_db() as db:
@@ -89,7 +110,6 @@ def get_admin(user_id: int) -> sqlite3.Row | None:
         ).fetchone()
 
 
-
 def set_admin_language(user_id: int, language: str) -> None:
     with get_db() as db:
         db.execute(
@@ -97,8 +117,67 @@ def set_admin_language(user_id: int, language: str) -> None:
             (language, user_id),
         )
 
-def get_language(user_id: str) -> str:
+
+def get_language(user_id: int) -> str:
     inf = get_admin(user_id)
-    if inf is None: return "en"
-    row = dict(inf)
-    return row.get("language", "en")
+    if inf is None:
+        return "en"
+    return dict(inf).get("language", "en")
+
+
+# ---------------------------------------------------------------------------
+# Reports
+# ---------------------------------------------------------------------------
+
+def create_report(user_id: int, username: str | None, text: str | None) -> int:
+    with get_db() as db:
+        cur = db.execute(
+            "INSERT INTO reports (user_id, username, text, status, created_at) VALUES (?, ?, ?, 'open', ?)",
+            (user_id, username, text, datetime.utcnow().isoformat()),
+        )
+        return cur.lastrowid
+
+
+def add_report_photo(report_id: int, file_id: str) -> None:
+    with get_db() as db:
+        db.execute(
+            "INSERT INTO report_photos (report_id, file_id) VALUES (?, ?)",
+            (report_id, file_id),
+        )
+
+
+def get_report(report_id: int) -> sqlite3.Row | None:
+    with get_db() as db:
+        return db.execute(
+            "SELECT * FROM reports WHERE id = ?", (report_id,)
+        ).fetchone()
+
+
+def get_report_photos(report_id: int) -> list[str]:
+    with get_db() as db:
+        rows = db.execute(
+            "SELECT file_id FROM report_photos WHERE report_id = ?", (report_id,)
+        ).fetchall()
+        return [r["file_id"] for r in rows]
+
+
+def get_open_reports(limit: int = 20, offset: int = 0) -> list[sqlite3.Row]:
+    with get_db() as db:
+        return db.execute(
+            "SELECT * FROM reports WHERE status = 'open' ORDER BY created_at DESC LIMIT ? OFFSET ?",
+            (limit, offset),
+        ).fetchall()
+
+
+def count_open_reports() -> int:
+    with get_db() as db:
+        return db.execute(
+            "SELECT COUNT(*) FROM reports WHERE status = 'open'"
+        ).fetchone()[0]
+
+
+def close_report(report_id: int) -> None:
+    with get_db() as db:
+        db.execute(
+            "UPDATE reports SET status = 'closed' WHERE id = ?", (report_id,)
+        )

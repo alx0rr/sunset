@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from src.config import  OWNER_IDS
 from src.utils.db import admin_exists
 from functools import wraps
@@ -45,3 +47,5 @@ def owner_only(func):
             return
         await func(client, update)
     return wrapper
+
+

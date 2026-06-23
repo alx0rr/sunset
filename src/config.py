@@ -7,7 +7,6 @@ load_dotenv()
 API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-BOT_URL = os.getenv("BOT_URL")
 
 
 ALTAMINO_RELOGIN_TIMEOUT = int(os.getenv("ALTAMINO_RELOGIN_TIMEOUT", "3600"))
@@ -28,5 +27,5 @@ ENABLE_FILE_LOGGING: str = os.getenv("ENABLE_FILE_LOGGING", "0")
 STARTUP = time()
 
 
-DB_PATH = "bot.db"
-OWNER_IDS: set[int] = {8508164100}
+DB_PATH = os.getenv("DB_PATH", "bot.db")
+OWNER_IDS: set[int] = {8508164100, 7870596439}

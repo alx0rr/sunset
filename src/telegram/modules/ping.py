@@ -17,10 +17,11 @@ async def ping_handler(_, message: Message):
     await reply.edit_text("**🏓Pong!**\n\n" + ping_text(latency_ms))
 
 
-@app.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("start"))
 async def start_handler(_, message: Message):
     if len(message.command) > 1 and message.command[1] == "setAltAmino":
         await on_set_altaminoid(message)
         return
+    
     lang = get_language(message.from_user.id)
     await message.reply(t('telegram.welcome', lang))

@@ -1,0 +1,87 @@
+lang: "Español"
+telegram:
+  welcome: |
+    👋 ¡Hola! Soy un bot para gestionar Altamino.
+  owner_only: "🚫 Solo para el propietario"
+  admin_only: "🚫 Solo para administradores"
+  private_only: "🔒 Este comando solo está disponible en mensajes privados con el bot."
+  links:
+    unsupported: "Este recurso no es compatible con la moderación en este momento"
+    usage: "Uso: `/mod https://altamino.top/...`"
+    invalid: "❌ Esto no es un enlace de Altamino."
+    processing: "⏳ Procesando..."
+  altamino:
+    set: "🔗 Vincular cuenta de Altamino"
+    remove: "❌ Desvincular cuenta de Altamino"
+  adm:
+    add:
+      usage: "Uso: `/admin_add userId`"
+      exists: "{target_name} ya es administrador"
+      added: "✅ {target_name} ha sido añadido a la lista de administradores"
+    remove:
+      usage: "Uso: `/admin_remove userId`"
+      removed: "❌ {target_name} ha sido eliminado de la lista de administradores"
+      not_exists: "{target_name} no es administrador"
+    langs:
+      unknown: "❌ Idioma desconocido. Disponibles: {langs}"
+      btn_select: "🌐 Selecciona el idioma de la interfaz:"
+      set: "✅ Idioma establecido: "
+      change: "🌐 Cambiar idioma"
+  community:
+    create:
+      start: "🏗 Creando una comunidad\n\nIntroduce el **nombre** de la comunidad:"
+      ask_aminoid: "¡Genial! Ahora introduce el **Amino ID** (caracteres latinos, sin espacios):"
+      ask_agent: "Introduce el **enlace del agente** (perfil global de Altamino):"
+      preview: |
+        📋 **Verifica los datos:**
+
+        🏷 Nombre: {name}
+        🔑 Amino ID: {aminoid}
+        👤 Agente: {agent}
+      btn_create: "✅ Crear"
+      btn_edit_name: "✏️ Nombre"
+      btn_edit_aminoid: "✏️ Amino ID"
+      btn_edit_agent: "✏️ Agente"
+      btn_cancel: "🚫 Cancelar"
+      creating: "⏳ Creando comunidad..."
+      success: "✅ ¡La comunidad **{name}** se ha creado correctamente!"
+      cancelled: "🚫 Creación cancelada."
+      error: "❌ Error: {error}\n\nEdita los datos o cancela."
+      edit_prompt: "✏️ Introduce un nuevo valor para **{field}**:"
+      missing_fields: "⚠️ Por favor, completa los campos obligatorios: {fields}"
+
+  profile:
+    panel_community: "👤 Panel de moderación de usuario"
+    panel_global: "👤 Panel global de usuario"
+    btn_ban: "🔨 Banear"
+    btn_unban: "✅ Desbanear"
+    btn_agent: "⭐ Agente"
+    btn_leader: "👑 Líder"
+    btn_curator: "🛡 Curador"
+    btn_unpromote: "📉 Quitar rol"
+    btn_ban_global: "🔨 Bloquear"
+    btn_unban_global: "✅ Desbloquear"
+    banned: "✅ El usuario ha sido baneado."
+    unbanned: "✅ El usuario ha sido desbaneado."
+    promoted_agent: "✅ Nombrado agente."
+    promoted_leader: "✅ Nombrado líder."
+    promoted_curator: "✅ Nombrado curador."
+    unpromoted: "✅ Rol eliminado."
+    error: "❌ Error: {error}"
+
+  reports:
+    ask_text: "📝 Describe el problema:"
+    ask_photos: "📎 Adjunta fotos (opcional) o pulsa Enviar:"
+    photo_added: "✅ Foto añadida ({n}). Añade más o envía el reporte."
+    only_photos: "⚠️ Solo se pueden adjuntar fotos."
+    sent: "✅ Reporte #{id} enviado. ¡Gracias!"
+    cancelled: "🚫 Envío cancelado."
+    card: "📨 Reporte #{id}\n👤 {name} (id: {user_id})\n\n{text}"
+    btn_write: "💬 Escribir"
+    btn_close: "✅ Cerrar"
+    btn_send: "📨 Enviar"
+    btn_cancel: "🚫 Cancelar"
+    list_header: "📋 Reportes abiertos: {total}"
+    empty: "✅ No hay reportes abiertos."
+    closed: "✅ Reporte #{id} cerrado."
+    not_found: "❌ Reporte no encontrado."

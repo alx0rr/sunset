@@ -4,32 +4,15 @@ from pyrogram.types import Message
 from src.utils.i18n import t
 from src.utils.db import get_language
 from src.telegram.helpers.wrappers.adm import admin_only
+from src.telegram.helpers.wrappers import private_only
 from src.telegram import tgApp as app
 from src.utils.link_validator import extract_url, is_altamino_link
 from src import altAminoClient as client
-
+from src.telegram.modules.community import handle_community
+from src.telegram.modules.chats import handle_chat
+from src.telegram.modules.posts import handle_blog, handle_wiki
+from src.telegram.modules.users import handle_profile
 from altamino import args
-
-
-async def handle_blog(reply: Message, link_info, lang) -> None:
-    await reply.edit_text(t("telegram.links.unsupported", lang))
-
-
-async def handle_chat(reply: Message, link_info, lang) -> None:
-    await reply.edit_text(t("telegram.links.unsupported", lang))
-
-
-async def handle_community(reply: Message, link_info, lang) -> None:
-    await reply.edit_text(t("telegram.links.unsupported", lang))
-
-
-async def handle_profile(reply: Message, link_info, lang) -> None:
-    await reply.edit_text(t("telegram.links.unsupported", lang))
-
-
-async def handle_wiki(reply: Message, link_info, lang) -> None:
-    await reply.edit_text(t("telegram.links.unsupported", lang))
-
 
 
 
@@ -44,6 +27,7 @@ OBJECT_TYPE_HANDLERS = {
 
 
 @app.on_message(filters.command("mod"))
+@private_only
 @admin_only
 async def link_moderation_handler(_, message: Message):
     lang = get_language(message.from_user.id)
@@ -59,10 +43,14 @@ async def link_moderation_handler(_, message: Message):
         return
 
     try:
+        client.set_language(lang)
         link_info = await client.get_from_link(url)
     except Exception as e:
         await reply.edit_text(str(e))
         return
+    print(link_info.comId)
+    print(link_info.objectId)
+    print(link_info.objectType)
 
     handler = OBJECT_TYPE_HANDLERS.get(link_info.objectType)
 

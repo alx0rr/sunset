@@ -133,7 +133,7 @@ async def me_handler(_, message: Message):
 
     await message.reply(
         text,
-        reply_markup=me_keyboard(lang, row.get('altamino_id') is not None, message.chat.type == ChatType.PRIVATE ),
+        reply_markup=await me_keyboard(lang, row.get('altamino_id') is not None, message.chat.type == ChatType.PRIVATE ),
         disable_web_page_preview=True
     )
 

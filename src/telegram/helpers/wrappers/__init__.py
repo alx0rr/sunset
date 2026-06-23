@@ -1,0 +1,22 @@
+from __future__ import annotations
+from functools import wraps
+from pyrogram.types import Message, CallbackQuery
+from pyrogram.enums import ChatType
+from src.utils.db import get_language
+from src.utils.i18n import t
+
+
+def private_only(func):
+    @wraps(func)
+    async def wrapper(client, update: Message | CallbackQuery):
+        message = update if isinstance(update, Message) else update.message
+        if message.chat.type != ChatType.PRIVATE:
+            lang = get_language(update.from_user.id)
+            text = t("telegram.private_only", lang)
+            if isinstance(update, CallbackQuery):
+                await update.answer(text, show_alert=True)
+            else:
+                await update.reply(text)
+            return
+        await func(client, update)
+    return wrapper
