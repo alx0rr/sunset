@@ -129,6 +129,7 @@ async def me_handler(_, message: Message):
         link = _user_link(row["user_id"], name)
         text = f"**{link}**\nLanguage: {row.get('language', 'en')}\nAltAmino: {'✅' if row.get('altamino_id') else '❌'}"
     else:
+        row={}
         text = " _(empty)_"
 
     await message.reply(
@@ -143,7 +144,7 @@ async def me_handler(_, message: Message):
 @app.on_callback_query(filters.regex(r"^setlang:(.+)"))
 @admin_only
 async def set_language_callback(_, callback_query: CallbackQuery):
-    code = callback_query.data.split(":")[1]
+    code = str(callback_query.data).split(":")[1]
     user_id = callback_query.from_user.id
     
     langs = get_langs_list()
@@ -162,8 +163,7 @@ async def set_language_callback(_, callback_query: CallbackQuery):
     success_text = f"{t('telegram.adm.langs.set', code)} {t('lang', code)}"
  
     await callback_query.edit_message_text(
-        text=success_text,
-        reply_markup=None 
+        text=success_text
     )
     
     await callback_query.answer(success_text)

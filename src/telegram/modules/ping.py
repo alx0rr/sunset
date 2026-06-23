@@ -4,8 +4,8 @@ from pyrogram import filters
 from pyrogram.types import Message
 
 from src.telegram import tgApp as app
-from src.utils import ping_text
 from src.telegram.modules.adm import on_set_altaminoid
+from src.utils import ping_text
 from src.utils.db import get_language
 from src.utils.i18n import t
 
@@ -22,6 +22,6 @@ async def start_handler(_, message: Message):
     if len(message.command) > 1 and message.command[1] == "setAltAmino":
         await on_set_altaminoid(message)
         return
-    
+
     lang = get_language(message.from_user.id)
-    await message.reply(t('telegram.welcome', lang))
+    await message.reply(t("telegram.welcome", lang))

@@ -1,21 +1,18 @@
+from altamino import args
 from pyrogram import filters
 from pyrogram.types import Message
 
-from src.utils.i18n import t
-from src.utils.db import get_language
-from src.telegram.helpers.wrappers.adm import admin_only
-from src.telegram.helpers.wrappers import private_only
-from src.telegram import tgApp as app
-from src.utils.link_validator import extract_url, is_altamino_link
 from src import altAminoClient as client
-from src.telegram.modules.mod_community import handle_community
+from src.telegram import tgApp as app
+from src.telegram.helpers.wrappers import private_only
+from src.telegram.helpers.wrappers.adm import admin_only
 from src.telegram.modules.chats import handle_chat
+from src.telegram.modules.mod_community import handle_community
 from src.telegram.modules.posts import handle_blog, handle_wiki
 from src.telegram.modules.users import handle_profile
-from altamino import args
-
-
-
+from src.utils.db import get_language
+from src.utils.i18n import t
+from src.utils.link_validator import extract_url, is_altamino_link
 
 OBJECT_TYPE_HANDLERS = {
     args.ObjectType.Blog: handle_blog,
@@ -49,7 +46,9 @@ async def link_moderation_handler(_, message: Message):
         await reply.edit_text(str(e))
         return
 
-    handler = OBJECT_TYPE_HANDLERS.get(link_info.objectType)
+    handler = OBJECT_TYPE_HANDLERS.get(
+        link_info.objectType if link_info.objectType is not None else -1000
+    )
 
     if handler is None:
         await reply.edit_text(t("telegram.links.unsupported", lang))

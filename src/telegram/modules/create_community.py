@@ -112,7 +112,7 @@ async def community_input_handler(_, message: Message):
 @app.on_callback_query(filters.regex(r"^cc:edit:(\w+)$"))
 @admin_only
 async def cc_edit_callback(_, query: CallbackQuery):
-    field = query.data.split(":")[2]
+    field = str(query.data).split(":")[2]
     if field not in FIELD_LABELS:
         await query.answer()
         return
@@ -167,13 +167,39 @@ async def cc_confirm_callback(_, query: CallbackQuery):
         await sub.create_community(name, aminoid, agent, lang)
         clear(user_id)
         await query.edit_message_text(
-            t("telegram.community.create.success", lang).format(name=name)
+            t("telegram.community.create.success", lang).format(name=name),
+            reply_markup=InlineKeyboardMarkup(
+                [
+                [InlineKeyboardButton(t("telegram.community.open", lang), url=f"https://altamino.top/c/{aminoid}")],
+                [InlineKeyboardButton(t("telegram.community.mod", lang), callback_data=f"comSettings:{aminoid}")]
+                ]
+            )
+            
         )
     except Exception as e:
         await query.edit_message_text(
             t("telegram.community.create.error", lang).format(error=str(e)),
             reply_markup=_error_keyboard(lang),
         )
+
+
+
+async def me_keyboard(lang: str, hasAltAminoId: bool, isPrivate: bool) -> InlineKeyboardMarkup:
+    buttons = []
+    
+    buttons.append([InlineKeyboardButton(t("telegram.adm.langs.change", lang), callback_data=f"changeLang")])
+
+
+    if hasAltAminoId:
+        buttons.append([InlineKeyboardButton(t("telegram.altamino.remove", lang), callback_data=f"unsetAltAmino")])
+    else:
+        if isPrivate:
+            buttons.append([InlineKeyboardButton(t("telegram.altamino.set", lang), callback_data=f"setAltAmino")])
+        else:
+            me = await app.get_me()
+            buttons.append([InlineKeyboardButton(t("telegram.altamino.set", lang), url=f"https://t.me/{me.username}?start=setAltAmino")])
+        
+    return InlineKeyboardMarkup(buttons)
 
 
 @app.on_callback_query(filters.regex(r"^cc:cancel$"))
