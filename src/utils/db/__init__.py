@@ -118,7 +118,9 @@ def set_admin_language(user_id: int, language: str) -> None:
         )
 
 
-def get_language(user_id: int) -> str:
+def get_language(user_id: int, isChat: bool = False) -> str:
+    if isChat:
+        return "en"
     inf = get_admin(user_id)
     if inf is None:
         return "en"

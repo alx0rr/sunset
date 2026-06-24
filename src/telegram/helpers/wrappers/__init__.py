@@ -4,7 +4,7 @@ from pyrogram.types import Message, CallbackQuery
 from pyrogram.enums import ChatType
 from src.utils.db import get_language
 from src.utils.i18n import t
-
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 def private_only(func):
     @wraps(func)
@@ -16,7 +16,10 @@ def private_only(func):
             if isinstance(update, CallbackQuery):
                 await update.answer(text, show_alert=True)
             else:
-                await update.reply(text)
+                me = await client.get_me()
+                await update.reply(text, reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton(t("telegram.open_direct", lang), url=f"https://t.me/{me.username}")],
+                ]))
             return
         await func(client, update)
     return wrapper
