@@ -131,7 +131,7 @@ async def community_edit_callback(_, query: CallbackQuery):
 async def community_edit_field_callback(_, query: CallbackQuery):
     _, com_id, field, _ = str(query.data).split(":")
     lang = get_language(query.from_user.id)
-    await query.edit_message_text(t("telegram.links.unsupported", lang))
+    await query.edit_message_text(t("unsupported", lang))
     await query.answer()
 
 

@@ -23,13 +23,6 @@ async def help_handler(_, message: Message):
     lang = get_language(message.from_user.id)
     await message.reply(t("telegram.help", lang))
 
-
-
-@app.on_message(filters.command("test"))
-async def help_handler(_, message: Message):
-    await message.reply("gg")
-
-
 @app.on_message(filters.command("start"))
 async def start_handler(_, message: Message):
     if len(message.command) > 1 and message.command[1] == "setAltAmino":

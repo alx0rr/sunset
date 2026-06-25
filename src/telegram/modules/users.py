@@ -21,6 +21,10 @@ def _community_keyboard(lang: str, user_id: str, com_id: str) -> InlineKeyboardM
 			InlineKeyboardButton(t("telegram.profile.btn_unban",    lang), callback_data=f"{p}:unban"),
 		],
 		[
+			InlineKeyboardButton(t("telegram.profile.btn_hide",      lang), callback_data=f"{p}:hide"),
+			InlineKeyboardButton(t("telegram.profile.btn_unhide",    lang), callback_data=f"{p}:unhide"),
+		],
+		[
 			InlineKeyboardButton(t("telegram.profile.btn_agent",    lang), callback_data=f"{p}:agent"),
 			InlineKeyboardButton(t("telegram.profile.btn_leader",   lang), callback_data=f"{p}:leader"),
 			InlineKeyboardButton(t("telegram.profile.btn_curator",  lang), callback_data=f"{p}:curator"),
@@ -105,6 +109,10 @@ async def _handle_community_action(
 	elif action == "unpromote":
 		await sub.unpromote_user(user_id)
 		await query.message.edit_text(t("telegram.profile.unpromoted", lang))
+	elif action == "hide":
+		await query.message.edit_text(t("unsupported", lang))
+	elif action == "unhide":
+		await query.message.edit_text(t("unsupported", lang))
 
 
 async def _handle_global_action(
@@ -113,9 +121,11 @@ async def _handle_global_action(
 	sub = AsyncSubClient(client, 0)
 	client.set_language(lang)
 	if action == "ban":
-		await sub.ban_user(user_id)
-		await query.message.edit_text(t("telegram.profile.btn_ban_global", lang))
+		await query.message.edit_text(t("unsupported", lang))
+		#await sub.ban_user(user_id)
+		#await query.message.edit_text(t("telegram.profile.btn_ban_global", lang))
 
 	elif action == "unban":
-		await sub.unban_user(user_id)
-		await query.message.edit_text(t("telegram.profile.btn_unban_global", lang))
+		await query.message.edit_text(t("unsupported", lang))
+		#await sub.unban_user(user_id)
+		#await query.message.edit_text(t("telegram.profile.btn_unban_global", lang))

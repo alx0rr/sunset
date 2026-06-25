@@ -202,7 +202,8 @@ async def setAltAminoCallback(_, callback_query: CallbackQuery):
 
 
 async def on_set_altaminoid(msg: Message | CallbackQuery):
+    lang = get_language(msg.from_user.id)
     if isinstance(msg, Message):
-        await msg.reply("not work")
+        await msg.reply(t("unsupported", lang))
     else:
-        await msg.message.reply("not work")
+        await msg.message.reply(t("unsupported", lang))
