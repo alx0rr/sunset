@@ -1,23 +1,24 @@
 lang: "العربية"
 
-unsupported: ⚠️ هذه الميزة غير متاحة مؤقتاً. تابع التحديثات.
+unsupported: ⚠️ هذه الميزة غير متاحة مؤقتاً. ترقّب التحديثات.
+error: "❌ خطأ: {error}"
 
 telegram:
   bot_added: |
-    👋 مرحباً! شكراً لإضافتي إلى المجموعة.
-    اكتب /help لرؤية ما يمكنني فعله!
+    👋 مرحباً! شكراً على إضافتي إلى المجموعة.
+    اكتب /help لمعرفة إمكانياتي!
   new_member: "👋 أهلاً وسهلاً، {name}!"
   welcome: |
-    👋 مرحباً! أنا بوت لإدارة Altamino واستقبال تقاريرك.
-    اكتب /help لرؤية إمكانياتي!
-  help: "لا يوجد شيء هنا بعد، آسف!"
+    👋 مرحباً! أنا بوت لإدارة Altamino واستقبال بلاغاتك.
+    اكتب /help لمعرفة إمكانياتي!
+  help: "لا يوجد شيء هنا بعد، نعتذر"
   owner_only: "🚫 للمالك فقط"
   admin_only: "🚫 للمشرفين فقط"
   private_only: "🔒 هذا الأمر متاح فقط في الرسائل الخاصة مع البوت."
-  open_direct: "فتح محادثة مع البوت"
+  open_direct: "مراسلة البوت"
 
   links:
-    unsupported: "⚠️ هذا المورد غير مدعوم للإشراف في الوقت الحالي"
+    unsupported: "⚠️ هذا المصدر غير مدعوم للإشراف حتى الآن"
     usage: "الاستخدام: `/mod https://altamino.top/...`"
     invalid: "❌ هذا ليس رابط Altamino."
     processing: "⏳ جارٍ المعالجة..."
@@ -36,14 +37,14 @@ telegram:
       removed: "✅ تمت إزالة {target_name} من قائمة المشرفين"
       not_exists: "⚠️ {target_name} ليس مشرفاً"
     langs:
-      unknown: "❌ لغة غير معروفة. المتاح: {langs}"
+      unknown: "❌ لغة غير معروفة. المتاحة: {langs}"
       btn_select: "🌐 اختر لغة الواجهة:"
       set: "✅ تم ضبط اللغة: "
       change: "🌐 تغيير اللغة"
 
   community:
     open: "فتح"
-    mod: "إدارة"
+    mod: "إعداد"
     panel: "🏘 لوحة المجتمع"
     btn_edit: "✏️ تعديل"
     btn_delete: "🗑 حذف"
@@ -51,9 +52,9 @@ telegram:
     create:
       start: "🏗 إنشاء مجتمع\n\nأدخل **اسم** المجتمع:"
       ask_aminoid: "رائع! الآن أدخل **Amino ID** (أحرف لاتينية، بدون مسافات):"
-      ask_agent: "أدخل **رابط الوكيل** (الملف الشخصي العالمي على Altamino):"
+      ask_agent: "أدخل **رابط الوكيل** (الملف الشخصي العام على Altamino):"
       preview: |
-        📋 **راجع بياناتك:**
+        📋 **راجع البيانات:**
 
         🏷 الاسم: {name}
         🔑 Amino ID: {aminoid}
@@ -66,9 +67,9 @@ telegram:
       creating: "⏳ جارٍ إنشاء المجتمع..."
       success: "✅ تم إنشاء مجتمع **{name}** بنجاح!"
       cancelled: "🚫 تم إلغاء الإنشاء."
-      error: "❌ خطأ: {error}\n\nغيّر البيانات أو ألغِ العملية."
+      error: "❌ خطأ: {error}\n\nعدّل البيانات أو ألغِ الإنشاء."
       edit_prompt: "✏️ أدخل قيمة جديدة لـ **{field}**:"
-      missing_fields: "⚠️ يرجى ملء الحقول المطلوبة: {fields}"
+      missing_fields: "⚠️ يرجى ملء الحقول الإلزامية: {fields}"
     edit:
       panel: "✏️ تعديل المجتمع"
       btn_name: "🏷 الاسم"
@@ -76,7 +77,7 @@ telegram:
       btn_icon: "🖼 الأيقونة"
       btn_banner: "🖼 البانر"
     delete:
-      confirm: "⚠️ هل أنت متأكد أنك تريد حذف المجتمع؟ هذا الإجراء لا يمكن التراجع عنه."
+      confirm: "⚠️ هل أنت متأكد من حذف هذا المجتمع؟ لا يمكن التراجع عن هذا الإجراء."
       btn_confirm: "✅ نعم، احذف"
       btn_cancel: "🚫 إلغاء"
       deleting: "⏳ جارٍ حذف المجتمع..."
@@ -85,11 +86,13 @@ telegram:
 
   profile:
     panel_community: "👤 لوحة إشراف المستخدم"
-    panel_global: "👤 اللوحة العالمية للمستخدم"
+    panel_global: "👤 اللوحة العامة للمستخدم"
     btn_ban: "🔨 حظر"
     btn_unban: "✅ رفع الحظر"
     btn_hide: "🙈 إخفاء الملف الشخصي"
     btn_unhide: "👁 إظهار الملف الشخصي"
+    btn_strike: "وضع القراءة فقط"
+    btn_warn: "تحذير"
     btn_agent: "⭐ وكيل"
     btn_leader: "👑 قائد"
     btn_curator: "🛡 منسق"
@@ -98,25 +101,56 @@ telegram:
     btn_unban_global: "✅ رفع الحجب"
     banned: "✅ تم حظر المستخدم."
     unbanned: "✅ تم رفع حظر المستخدم."
-    promoted_agent: "✅ تم تعيين الوكيل."
-    promoted_leader: "✅ تم تعيين القائد."
-    promoted_curator: "✅ تم تعيين المنسق."
+    promoted_agent: "✅ تم تعيين دور الوكيل."
+    promoted_leader: "✅ تم تعيين دور القائد."
+    promoted_curator: "✅ تم تعيين دور المنسق."
     unpromoted: "✅ تم إزالة الدور."
+    hided: "✅ تم إخفاء الملف الشخصي."
+    unhided: "✅ الملف الشخصي مرئي."
+    warned: "✅ تم إصدار تحذير."
+    striked: "✅ تم تفعيل وضع القراءة فقط."
     error: "❌ خطأ: {error}"
 
+    ask_reason: "📝 أدخل السبب:"
+    ask_strike_time: "⏱ اختر مدة وضع القراءة فقط:"
+    ask_title: "📋 أدخل العنوان:"
+    ask_reason_optional: "📝 أدخل السبب أو تخطَّ هذه الخطوة:"
+    btn_skip: "⏭ تخطي"
+    btn_cancel: "🚫 إلغاء"
+    action_cancelled: "🚫 تم إلغاء الإجراء."
+
+  chat:
+    panel: "💬 لوحة إدارة المحادثة"
+    transfer_host_btn: "نقل الاستضافة"
+    add_cohost_btn: "إضافة مضيف مشارك"
+    remove_cohost_btn: "إزالة المضيف المشارك"
+    delete_chat_btn: "⚠️ حذف المحادثة"
+    disable_chat_btn: "⚠️ تعطيل المحادثة"
+    btn_cancel: "🚫 إلغاء"
+    btn_confirm: "✅ نعم"
+    action_cancelled: "🚫 تم إلغاء الإجراء."
+
+    deleted: "✅ تم حذف المحادثة."
+    disabled: "✅ تم تعطيل المحادثة."
+
+    delete_confirm_ask: "هل أنت متأكد من حذف هذه المحادثة؟"
+    disable_confirm_ask: "هل أنت متأكد من تعطيل هذه المحادثة؟"
+    add_user_text: "أرسل رابط المستخدم:"
+    incorrect_link: "❌ رابط غير صالح. يرجى إرسال رابط المستخدم."
+
   reports:
-    ask_text: "📝 صف المشكلة:"
-    ask_photos: "📎 أرفق صوراً (اختياري) أو اضغط إرسال:"
-    photo_added: "✅ تمت إضافة الصورة ({n}). أضف المزيد أو أرسل التقرير."
+    ask_text: "📝 صِف المشكلة:"
+    ask_photos: "📎 أرفق صوراً (اختياري) أو اضغط «إرسال»:"
+    photo_added: "✅ تمت إضافة الصورة ({n}). أضف المزيد أو أرسل البلاغ."
     only_photos: "⚠️ يمكن إرفاق الصور فقط."
-    sent: "✅ تم إرسال التقرير #{id}. شكراً!"
+    sent: "✅ تم إرسال البلاغ #{id}. شكراً!"
     cancelled: "🚫 تم إلغاء الإرسال."
-    card: "📨 تقرير #{id}\n👤 {name} (id: {user_id})\n\n{text}"
+    card: "📨 البلاغ #{id}\n👤 {name} (id: {user_id})\n\n{text}"
     btn_write: "💬 رد"
     btn_close: "✅ إغلاق"
     btn_send: "📨 إرسال"
     btn_cancel: "🚫 إلغاء"
-    list_header: "📋 التقارير المفتوحة: {total}"
-    empty: "✅ لا توجد تقارير مفتوحة."
-    closed: "✅ تم إغلاق التقرير #{id}."
-    not_found: "❌ التقرير غير موجود."
+    list_header: "📋 البلاغات المفتوحة: {total}"
+    empty: "✅ لا توجد بلاغات مفتوحة."
+    closed: "✅ تم إغلاق البلاغ #{id}."
+    not_found: "❌ البلاغ غير موجود."

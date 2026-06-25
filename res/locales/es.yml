@@ -1,23 +1,24 @@
 lang: "Español"
 
-unsupported: ⚠️ Esta función no está disponible temporalmente. Mantente al tanto de las actualizaciones.
+unsupported: ⚠️ Esta función no está disponible temporalmente. Mantente atento a las actualizaciones.
+error: "❌ Error: {error}"
 
 telegram:
   bot_added: |
     👋 ¡Hola! Gracias por añadirme al grupo.
-    Escribe /help para ver mis funciones.
-  new_member: "👋 ¡Bienvenido/a, {name}!"
+    Escribe /help para ver lo que puedo hacer.
+  new_member: "👋 ¡Bienvenido, {name}!"
   welcome: |
     👋 ¡Hola! Soy un bot para gestionar Altamino y recibir tus reportes.
-    Escribe /help para ver mis funciones.
-  help: "Nada por aquí todavía, ¡lo siento!"
+    Escribe /help para ver lo que puedo hacer.
+  help: "Nada por aquí todavía, disculpa"
   owner_only: "🚫 Solo para el propietario"
   admin_only: "🚫 Solo para administradores"
   private_only: "🔒 Este comando solo está disponible en mensajes privados con el bot."
-  open_direct: "Abrir chat con el bot"
+  open_direct: "Escribir al bot"
 
   links:
-    unsupported: "⚠️ Este recurso no está disponible para moderación en este momento"
+    unsupported: "⚠️ Este recurso aún no está soportado para moderación"
     usage: "Uso: `/mod https://altamino.top/...`"
     invalid: "❌ Esto no es un enlace de Altamino."
     processing: "⏳ Procesando..."
@@ -38,20 +39,20 @@ telegram:
     langs:
       unknown: "❌ Idioma desconocido. Disponibles: {langs}"
       btn_select: "🌐 Selecciona el idioma de la interfaz:"
-      set: "✅ Idioma establecido: "
+      set: "✅ Idioma configurado: "
       change: "🌐 Cambiar idioma"
 
   community:
     open: "Abrir"
-    mod: "Gestionar"
+    mod: "Configurar"
     panel: "🏘 Panel de comunidad"
     btn_edit: "✏️ Editar"
     btn_delete: "🗑 Eliminar"
     btn_back: "⬅️ Volver"
     create:
-      start: "🏗 Crear comunidad\n\nIngresa el **nombre** de la comunidad:"
-      ask_aminoid: "¡Genial! Ahora ingresa el **Amino ID** (letras latinas, sin espacios):"
-      ask_agent: "Ingresa el **enlace del agente** (perfil global de Altamino):"
+      start: "🏗 Creando una comunidad\n\nIntroduce el **nombre** de la comunidad:"
+      ask_aminoid: "¡Genial! Ahora introduce el **Amino ID** (caracteres latinos, sin espacios):"
+      ask_agent: "Introduce el **enlace del agente** (perfil global de Altamino):"
       preview: |
         📋 **Revisa los datos:**
 
@@ -66,17 +67,17 @@ telegram:
       creating: "⏳ Creando comunidad..."
       success: "✅ ¡Comunidad **{name}** creada con éxito!"
       cancelled: "🚫 Creación cancelada."
-      error: "❌ Error: {error}\n\nModifica los datos o cancela la operación."
-      edit_prompt: "✏️ Ingresa un nuevo valor para **{field}**:"
-      missing_fields: "⚠️ Completa los campos obligatorios: {fields}"
+      error: "❌ Error: {error}\n\nModifica los datos o cancela la creación."
+      edit_prompt: "✏️ Introduce un nuevo valor para **{field}**:"
+      missing_fields: "⚠️ Por favor, rellena los campos obligatorios: {fields}"
     edit:
       panel: "✏️ Editar comunidad"
       btn_name: "🏷 Nombre"
       btn_description: "📝 Descripción"
-      btn_icon: "🖼 Ícono"
+      btn_icon: "🖼 Icono"
       btn_banner: "🖼 Banner"
     delete:
-      confirm: "⚠️ ¿Estás seguro de que quieres eliminar la comunidad? Esta acción es irreversible."
+      confirm: "⚠️ ¿Seguro que quieres eliminar esta comunidad? Esta acción es irreversible."
       btn_confirm: "✅ Sí, eliminar"
       btn_cancel: "🚫 Cancelar"
       deleting: "⏳ Eliminando comunidad..."
@@ -90,24 +91,57 @@ telegram:
     btn_unban: "✅ Desbanear"
     btn_hide: "🙈 Ocultar perfil"
     btn_unhide: "👁 Mostrar perfil"
+    btn_strike: "Modo solo lectura"
+    btn_warn: "Advertencia"
     btn_agent: "⭐ Agente"
     btn_leader: "👑 Líder"
     btn_curator: "🛡 Curador"
     btn_unpromote: "📉 Quitar rol"
     btn_ban_global: "🔨 Bloquear"
     btn_unban_global: "✅ Desbloquear"
-    banned: "✅ Usuario baneado."
-    unbanned: "✅ Ban levantado."
-    promoted_agent: "✅ Agente asignado."
-    promoted_leader: "✅ Líder asignado."
-    promoted_curator: "✅ Curador asignado."
+    banned: "✅ El usuario ha sido baneado."
+    unbanned: "✅ El usuario ha sido desbaneado."
+    promoted_agent: "✅ Rol de agente asignado."
+    promoted_leader: "✅ Rol de líder asignado."
+    promoted_curator: "✅ Rol de curador asignado."
     unpromoted: "✅ Rol eliminado."
+    hided: "✅ Perfil ocultado."
+    unhided: "✅ Perfil visible."
+    warned: "✅ Advertencia emitida."
+    striked: "✅ Modo solo lectura activado."
     error: "❌ Error: {error}"
+
+    ask_reason: "📝 Indica el motivo:"
+    ask_strike_time: "⏱ Selecciona la duración del modo solo lectura:"
+    ask_title: "📋 Introduce un título:"
+    ask_reason_optional: "📝 Indica el motivo o salta el paso:"
+    btn_skip: "⏭ Saltar"
+    btn_cancel: "🚫 Cancelar"
+    action_cancelled: "🚫 Acción cancelada."
+
+  chat:
+    panel: "💬 Panel de gestión del chat"
+    transfer_host_btn: "Transferir host"
+    add_cohost_btn: "Añadir co-host"
+    remove_cohost_btn: "Eliminar co-host"
+    delete_chat_btn: "⚠️ Eliminar chat"
+    disable_chat_btn: "⚠️ Desactivar chat"
+    btn_cancel: "🚫 Cancelar"
+    btn_confirm: "✅ Sí"
+    action_cancelled: "🚫 Acción cancelada."
+
+    deleted: "✅ Chat eliminado."
+    disabled: "✅ Chat desactivado."
+
+    delete_confirm_ask: "¿Seguro que quieres eliminar este chat?"
+    disable_confirm_ask: "¿Seguro que quieres desactivar este chat?"
+    add_user_text: "Envía un enlace al usuario:"
+    incorrect_link: "❌ Enlace no válido. Por favor, envía un enlace al usuario."
 
   reports:
     ask_text: "📝 Describe el problema:"
-    ask_photos: "📎 Adjunta fotos (opcional) o pulsa Enviar:"
-    photo_added: "✅ Foto añadida ({n}). Agrega más o envía el reporte."
+    ask_photos: "📎 Adjunta fotos (opcional) o pulsa «Enviar»:"
+    photo_added: "✅ Foto añadida ({n}). Añade más o envía el reporte."
     only_photos: "⚠️ Solo se pueden adjuntar fotos."
     sent: "✅ Reporte #{id} enviado. ¡Gracias!"
     cancelled: "🚫 Envío cancelado."

@@ -19,7 +19,7 @@ def is_admin(user_id: int) -> bool:
 
 def admin_only(func):
     @wraps(func)
-    async def wrapper(client, update: Message | CallbackQuery):
+    async def wrapper(client, update: Message | CallbackQuery, *args, **kwargs):
         user_id = update.from_user.id
         if not is_admin(user_id):
             lang = get_language(user_id)
@@ -35,7 +35,7 @@ def admin_only(func):
 
 def owner_only(func):
     @wraps(func)
-    async def wrapper(client, update: Message | CallbackQuery):
+    async def wrapper(client, update: Message | CallbackQuery, *args, **kwargs):
         user_id = update.from_user.id
         if not is_owner(user_id):
             lang = get_language(user_id)

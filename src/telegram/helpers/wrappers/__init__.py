@@ -8,7 +8,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 def private_only(func):
     @wraps(func)
-    async def wrapper(client, update: Message | CallbackQuery):
+    async def wrapper(client, update: Message | CallbackQuery, *args, **kwargs):
         message = update if isinstance(update, Message) else update.message
         if message.chat.type != ChatType.PRIVATE:
             lang = get_language(update.from_user.id)

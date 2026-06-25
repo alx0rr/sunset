@@ -1,24 +1,24 @@
 lang: "English"
 
 unsupported: ⚠️ This feature is temporarily unavailable. Stay tuned for updates.
-
+error: "❌ Error: {error}"
 
 telegram:
   bot_added: |
-    👋 Hey! Thanks for adding me to the group.
+    👋 Hi! Thanks for adding me to the group.
     Type /help to see what I can do!
   new_member: "👋 Welcome, {name}!"
   welcome: |
     👋 Hi! I'm a bot for managing Altamino and handling your reports.
-    Type /help to see my features!
-  help: "Nothing here yet, sorry!"
+    Type /help to see what I can do!
+  help: "Nothing here yet, sorry"
   owner_only: "🚫 Owner only"
   admin_only: "🚫 Admins only"
   private_only: "🔒 This command is only available in private messages with the bot."
-  open_direct: "Open chat with bot"
+  open_direct: "Message the bot"
 
   links:
-    unsupported: "⚠️ This resource is not supported for moderation at the moment"
+    unsupported: "⚠️ This resource is not yet supported for moderation"
     usage: "Usage: `/mod https://altamino.top/...`"
     invalid: "❌ This is not an Altamino link."
     processing: "⏳ Processing..."
@@ -31,10 +31,10 @@ telegram:
     add:
       usage: "Usage: `/admin_add userId`"
       exists: "⚠️ {target_name} is already an administrator"
-      added: "✅ {target_name} added to administrators"
+      added: "✅ {target_name} added to the administrator list"
     remove:
       usage: "Usage: `/admin_remove userId`"
-      removed: "✅ {target_name} removed from administrators"
+      removed: "✅ {target_name} removed from the administrator list"
       not_exists: "⚠️ {target_name} is not an administrator"
     langs:
       unknown: "❌ Unknown language. Available: {langs}"
@@ -44,14 +44,14 @@ telegram:
 
   community:
     open: "Open"
-    mod: "Manage"
-    panel: "🏘 Community Panel"
+    mod: "Configure"
+    panel: "🏘 Community panel"
     btn_edit: "✏️ Edit"
     btn_delete: "🗑 Delete"
     btn_back: "⬅️ Back"
     create:
       start: "🏗 Creating a community\n\nEnter the **name** of the community:"
-      ask_aminoid: "Great! Now enter the **Amino ID** (Latin letters, no spaces):"
+      ask_aminoid: "Great! Now enter the **Amino ID** (Latin characters, no spaces):"
       ask_agent: "Enter the **agent link** (global Altamino profile):"
       preview: |
         📋 **Review your details:**
@@ -67,17 +67,17 @@ telegram:
       creating: "⏳ Creating community..."
       success: "✅ Community **{name}** successfully created!"
       cancelled: "🚫 Creation cancelled."
-      error: "❌ Error: {error}\n\nChange the data or cancel."
+      error: "❌ Error: {error}\n\nChange the details or cancel creation."
       edit_prompt: "✏️ Enter a new value for **{field}**:"
-      missing_fields: "⚠️ Fill in required fields: {fields}"
+      missing_fields: "⚠️ Please fill in the required fields: {fields}"
     edit:
-      panel: "✏️ Editing community"
+      panel: "✏️ Edit community"
       btn_name: "🏷 Name"
       btn_description: "📝 Description"
       btn_icon: "🖼 Icon"
       btn_banner: "🖼 Banner"
     delete:
-      confirm: "⚠️ Are you sure you want to delete this community? This action is irreversible."
+      confirm: "⚠️ Are you sure you want to delete this community? This action cannot be undone."
       btn_confirm: "✅ Yes, delete"
       btn_cancel: "🚫 Cancel"
       deleting: "⏳ Deleting community..."
@@ -85,12 +85,14 @@ telegram:
       error: "❌ Error: {error}"
 
   profile:
-    panel_community: "👤 User Moderation Panel"
-    panel_global: "👤 Global User Panel"
+    panel_community: "👤 User moderation panel"
+    panel_global: "👤 Global user panel"
     btn_ban: "🔨 Ban"
     btn_unban: "✅ Unban"
     btn_hide: "🙈 Hide profile"
     btn_unhide: "👁 Show profile"
+    btn_strike: "Read-only mode"
+    btn_warn: "Warning"
     btn_agent: "⭐ Agent"
     btn_leader: "👑 Leader"
     btn_curator: "🛡 Curator"
@@ -99,18 +101,49 @@ telegram:
     btn_unban_global: "✅ Unblock"
     banned: "✅ User has been banned."
     unbanned: "✅ User has been unbanned."
-    promoted_agent: "✅ Agent assigned."
-    promoted_leader: "✅ Leader assigned."
-    promoted_curator: "✅ Curator assigned."
+    promoted_agent: "✅ Agent role assigned."
+    promoted_leader: "✅ Leader role assigned."
+    promoted_curator: "✅ Curator role assigned."
     unpromoted: "✅ Role removed."
+    hided: "✅ Profile hidden."
+    unhided: "✅ Profile visible."
+    warned: "✅ Warning issued."
+    striked: "✅ Read-only mode activated."
     error: "❌ Error: {error}"
+
+    ask_reason: "📝 Enter a reason:"
+    ask_strike_time: "⏱ Select the duration of read-only mode:"
+    ask_title: "📋 Enter a title:"
+    ask_reason_optional: "📝 Enter a reason or skip:"
+    btn_skip: "⏭ Skip"
+    btn_cancel: "🚫 Cancel"
+    action_cancelled: "🚫 Action cancelled."
+
+  chat:
+    panel: "💬 Chat management panel"
+    transfer_host_btn: "Transfer host"
+    add_cohost_btn: "Add co-host"
+    remove_cohost_btn: "Remove co-host"
+    delete_chat_btn: "⚠️ Delete chat"
+    disable_chat_btn: "⚠️ Disable chat"
+    btn_cancel: "🚫 Cancel"
+    btn_confirm: "✅ Yes"
+    action_cancelled: "🚫 Action cancelled."
+
+    deleted: "✅ Chat deleted."
+    disabled: "✅ Chat disabled."
+
+    delete_confirm_ask: "Are you sure you want to delete this chat?"
+    disable_confirm_ask: "Are you sure you want to disable this chat?"
+    add_user_text: "Send a link to the user:"
+    incorrect_link: "❌ Invalid link. Please send a link to the user."
 
   reports:
     ask_text: "📝 Describe the issue:"
-    ask_photos: "📎 Attach photos (optional) or press Send:"
+    ask_photos: "📎 Attach photos (optional) or press «Send»:"
     photo_added: "✅ Photo added ({n}). Add more or send the report."
     only_photos: "⚠️ Only photos can be attached."
-    sent: "✅ Report #{id} sent. Thank you!"
+    sent: "✅ Report #{id} submitted. Thank you!"
     cancelled: "🚫 Submission cancelled."
     card: "📨 Report #{id}\n👤 {name} (id: {user_id})\n\n{text}"
     btn_write: "💬 Reply"
