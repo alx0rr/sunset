@@ -132,6 +132,7 @@ telegram:
 
     deleted: "✅ تم حذف المحادثة."
     disabled: "✅ تم تعطيل المحادثة."
+    action_success: "✅ تم تنفيذ الإجراء بنجاح."
 
     delete_confirm_ask: "هل أنت متأكد من حذف هذه المحادثة؟"
     disable_confirm_ask: "هل أنت متأكد من تعطيل هذه المحادثة؟"

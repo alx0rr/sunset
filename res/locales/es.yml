@@ -132,6 +132,7 @@ telegram:
 
     deleted: "✅ Chat eliminado."
     disabled: "✅ Chat desactivado."
+    action_success: "✅ Acción completada con éxito."
 
     delete_confirm_ask: "¿Seguro que quieres eliminar este chat?"
     disable_confirm_ask: "¿Seguro que quieres desactivar este chat?"
