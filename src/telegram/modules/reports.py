@@ -14,7 +14,7 @@ from src.utils.db import (
     create_report, add_report_photo,
     get_open_reports, count_open_reports, close_report,
     get_report, get_report_photos,
-    get_all_admins, get_language,
+    get_language,
 )
 from src.utils.i18n import t
 from src.utils.fsm import get_state, set_state, update_data, get_data, clear
@@ -83,33 +83,6 @@ def _report_card(report_id: int, user_id: int, username: str | None, text: str |
         user_id=user_id,
         text=text or "—",
     )
-
-
-async def _notify_admins(
-    report_id: int,
-    user_id: int,
-    username: str | None,
-    text: str | None,
-    photos: list[str],
-) -> None:
-    card = _report_card(report_id, user_id, username, text, ADMIN_LANG)
-    keyboard = _report_keyboard(report_id, user_id, ADMIN_LANG)
-
-    for admin in get_all_admins():
-        admin_id = admin["user_id"]
-        try:
-            if photos:
-                media = [
-                    InputMediaPhoto(file_id, caption=card if i == 0 else "")
-                    for i, file_id in enumerate(photos)
-                ]
-                await app.send_media_group(admin_id, media)
-                await app.send_message(admin_id, card, reply_markup=keyboard)
-            else:
-                await app.send_message(admin_id, card, reply_markup=keyboard)
-        except Exception as e:
-            print(f"[reports] failed to notify admin {admin_id}: {e}")
-
 
 async def _edit_or_reply(target: Message | CallbackQuery, text: str, keyboard=None) -> None:
     if isinstance(target, CallbackQuery):
@@ -192,8 +165,6 @@ async def report_submit_callback(_, query: CallbackQuery):
     await query.edit_message_text(t("telegram.reports.sent", lang).format(id=report_id))
     await query.answer()
 
-    #await _notify_admins(report_id, user_id, query.from_user.username, text, photos)
-
 
 @app.on_callback_query(filters.regex(r"^report:cancel$"))
 async def report_cancel_callback(_, query: CallbackQuery):
@@ -255,7 +226,7 @@ async def report_view_callback(_, query: CallbackQuery):
             InputMediaPhoto(file_id, caption=card if i == 0 else "")
             for i, file_id in enumerate(photos)
         ]
-        await app.send_media_group(query.from_user.id, media)
+        await app.send_media_group(query.message.chat.id, media, message_thread_id=query.message.message_thread_id)
         await query.message.reply(card, reply_markup=keyboard)
     else:
         await query.edit_message_text(card, reply_markup=keyboard)
