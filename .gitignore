@@ -13,7 +13,7 @@ dist/
 
 .env
 
-unknown_errors*
+unknown_errors.txt
 .venv
 
 bot*
