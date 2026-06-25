@@ -1,26 +1,31 @@
 lang: "العربية"
+
 unsupported: ⚠️ هذه الميزة غير متاحة مؤقتاً. تابع التحديثات.
+
 telegram:
   bot_added: |
     👋 مرحباً! شكراً لإضافتي إلى المجموعة.
-    اكتب /help لمعرفة إمكانياتي!
+    اكتب /help لرؤية ما يمكنني فعله!
   new_member: "👋 أهلاً وسهلاً، {name}!"
   welcome: |
-    👋 مرحباً! أنا بوت لإدارة Altamino واستقبال البلاغات.
-    اكتب /help لمعرفة إمكانياتي!
-  help: "لا يوجد شيء هنا بعد، نعتذر!"
-  owner_only: "🚫 هذا الأمر متاح للمالك فقط"
-  admin_only: "🚫 هذا الأمر متاح للمشرفين فقط"
-  private_only: "🔒 هذا الأمر يعمل فقط في الرسائل الخاصة مع البوت."
-  open_direct: "مراسلة البوت"
+    👋 مرحباً! أنا بوت لإدارة Altamino واستقبال تقاريرك.
+    اكتب /help لرؤية إمكانياتي!
+  help: "لا يوجد شيء هنا بعد، آسف!"
+  owner_only: "🚫 للمالك فقط"
+  admin_only: "🚫 للمشرفين فقط"
+  private_only: "🔒 هذا الأمر متاح فقط في الرسائل الخاصة مع البوت."
+  open_direct: "فتح محادثة مع البوت"
+
   links:
-    unsupported: "⚠️ هذا المورد غير مدعوم للإشراف حالياً"
+    unsupported: "⚠️ هذا المورد غير مدعوم للإشراف في الوقت الحالي"
     usage: "الاستخدام: `/mod https://altamino.top/...`"
     invalid: "❌ هذا ليس رابط Altamino."
     processing: "⏳ جارٍ المعالجة..."
+
   altamino:
     set: "🔗 ربط حساب Altamino"
     remove: "❌ إلغاء ربط حساب Altamino"
+
   adm:
     add:
       usage: "الاستخدام: `/admin_add userId`"
@@ -30,11 +35,12 @@ telegram:
       usage: "الاستخدام: `/admin_remove userId`"
       removed: "✅ تمت إزالة {target_name} من قائمة المشرفين"
       not_exists: "⚠️ {target_name} ليس مشرفاً"
-  langs:
-    unknown: "❌ لغة غير معروفة. المتاحة: {langs}"
-    btn_select: "🌐 اختر لغة الواجهة:"
-    set: "✅ تم تغيير اللغة: "
-    change: "🌐 تغيير اللغة"
+    langs:
+      unknown: "❌ لغة غير معروفة. المتاح: {langs}"
+      btn_select: "🌐 اختر لغة الواجهة:"
+      set: "✅ تم ضبط اللغة: "
+      change: "🌐 تغيير اللغة"
+
   community:
     open: "فتح"
     mod: "إدارة"
@@ -45,12 +51,13 @@ telegram:
     create:
       start: "🏗 إنشاء مجتمع\n\nأدخل **اسم** المجتمع:"
       ask_aminoid: "رائع! الآن أدخل **Amino ID** (أحرف لاتينية، بدون مسافات):"
-      ask_agent: "أدخل **رابط الوكيل** (الملف الشخصي العالمي لـ Altamino):"
+      ask_agent: "أدخل **رابط الوكيل** (الملف الشخصي العالمي على Altamino):"
       preview: |
-        📋 **راجع البيانات:**
-          🏷 الاسم: {name}
-          🔑 Amino ID: {aminoid}
-          👤 الوكيل: {agent}
+        📋 **راجع بياناتك:**
+
+        🏷 الاسم: {name}
+        🔑 Amino ID: {aminoid}
+        👤 الوكيل: {agent}
       btn_create: "✅ إنشاء"
       btn_edit_name: "✏️ الاسم"
       btn_edit_aminoid: "✏️ Amino ID"
@@ -59,7 +66,7 @@ telegram:
       creating: "⏳ جارٍ إنشاء المجتمع..."
       success: "✅ تم إنشاء مجتمع **{name}** بنجاح!"
       cancelled: "🚫 تم إلغاء الإنشاء."
-      error: "❌ خطأ: {error}\n\nعدّل البيانات أو ألغِ الإنشاء."
+      error: "❌ خطأ: {error}\n\nغيّر البيانات أو ألغِ العملية."
       edit_prompt: "✏️ أدخل قيمة جديدة لـ **{field}**:"
       missing_fields: "⚠️ يرجى ملء الحقول المطلوبة: {fields}"
     edit:
@@ -69,45 +76,47 @@ telegram:
       btn_icon: "🖼 الأيقونة"
       btn_banner: "🖼 البانر"
     delete:
-      confirm: "⚠️ هل أنت متأكد من حذف هذا المجتمع؟ هذا الإجراء لا يمكن التراجع عنه."
+      confirm: "⚠️ هل أنت متأكد أنك تريد حذف المجتمع؟ هذا الإجراء لا يمكن التراجع عنه."
       btn_confirm: "✅ نعم، احذف"
       btn_cancel: "🚫 إلغاء"
       deleting: "⏳ جارٍ حذف المجتمع..."
       success: "✅ تم حذف المجتمع بنجاح."
       error: "❌ خطأ: {error}"
+
   profile:
     panel_community: "👤 لوحة إشراف المستخدم"
     panel_global: "👤 اللوحة العالمية للمستخدم"
     btn_ban: "🔨 حظر"
     btn_unban: "✅ رفع الحظر"
+    btn_hide: "🙈 إخفاء الملف الشخصي"
+    btn_unhide: "👁 إظهار الملف الشخصي"
     btn_agent: "⭐ وكيل"
     btn_leader: "👑 قائد"
     btn_curator: "🛡 منسق"
     btn_unpromote: "📉 إزالة الدور"
-    btn_ban_global: "🔨 حظر عالمي"
-    btn_unban_global: "✅ رفع الحظر العالمي"
-    btn_hide: "🙈 إخفاء الملف الشخصي"
-    btn_unhide: "👁 إظهار الملف الشخصي"
+    btn_ban_global: "🔨 حجب"
+    btn_unban_global: "✅ رفع الحجب"
     banned: "✅ تم حظر المستخدم."
-    unbanned: "✅ تم رفع الحظر عن المستخدم."
-    promoted_agent: "✅ تم تعيين دور الوكيل."
-    promoted_leader: "✅ تم تعيين دور القائد."
-    promoted_curator: "✅ تم تعيين دور المنسق."
+    unbanned: "✅ تم رفع حظر المستخدم."
+    promoted_agent: "✅ تم تعيين الوكيل."
+    promoted_leader: "✅ تم تعيين القائد."
+    promoted_curator: "✅ تم تعيين المنسق."
     unpromoted: "✅ تم إزالة الدور."
     error: "❌ خطأ: {error}"
+
   reports:
-    ask_text: "📝 صِف المشكلة:"
-    ask_photos: "📎 أرفق لقطات الشاشة (اختياري) أو اضغط إرسال:"
-    photo_added: "✅ تمت إضافة الصورة ({n}). أضف المزيد أو أرسل البلاغ."
+    ask_text: "📝 صف المشكلة:"
+    ask_photos: "📎 أرفق صوراً (اختياري) أو اضغط إرسال:"
+    photo_added: "✅ تمت إضافة الصورة ({n}). أضف المزيد أو أرسل التقرير."
     only_photos: "⚠️ يمكن إرفاق الصور فقط."
-    sent: "✅ تم إرسال البلاغ #{id}. شكراً!"
+    sent: "✅ تم إرسال التقرير #{id}. شكراً!"
     cancelled: "🚫 تم إلغاء الإرسال."
-    card: "📨 بلاغ #{id}\n👤 {name} (id: {user_id})\n\n{text}"
+    card: "📨 تقرير #{id}\n👤 {name} (id: {user_id})\n\n{text}"
     btn_write: "💬 رد"
     btn_close: "✅ إغلاق"
     btn_send: "📨 إرسال"
     btn_cancel: "🚫 إلغاء"
-    list_header: "📋 البلاغات المفتوحة: {total}"
-    empty: "✅ لا توجد بلاغات مفتوحة."
-    closed: "✅ تم إغلاق البلاغ #{id}."
-    not_found: "❌ البلاغ غير موجود."
+    list_header: "📋 التقارير المفتوحة: {total}"
+    empty: "✅ لا توجد تقارير مفتوحة."
+    closed: "✅ تم إغلاق التقرير #{id}."
+    not_found: "❌ التقرير غير موجود."
