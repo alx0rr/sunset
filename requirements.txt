@@ -1,5 +1,5 @@
 tgcrypto
 python-dotenv
-pyrogram
+pyrofork
 pyyaml
 git+https://github.com/altamino/altamino.py.git
