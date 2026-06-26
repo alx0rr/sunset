@@ -2,7 +2,7 @@ FROM python:3.12-slim
 WORKDIR /app
 
 ARG GITHUB_TOKEN
-
+RUN apt-get update && apt-get install -y git gcc && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
 RUN git config --global url."https://${GITHUB_TOKEN}@github.com/".insteadOf "https://github.com/"
