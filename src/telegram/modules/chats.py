@@ -102,7 +102,7 @@ async def pending_user_chat_link_handler(_, message: Message):
 		elif current_action == "remove_chat_cohost":
 			await sub.delete_co_host(inf["chat_id"], link_info.objectId)
 		elif current_action == "transfer_chat_host":
-			await sub.transfer_host(inf["chat_id"], link_info.objectId)
+			await sub.transfer_host(inf["chat_id"], [link_info.objectId])
 			
 		await reply.edit_text(t("telegram.chat.action_success", lang))
 	except Exception as e:
