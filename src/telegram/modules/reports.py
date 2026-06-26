@@ -209,8 +209,8 @@ async def report_list_page_callback(_, query: CallbackQuery):
 async def report_view_callback(_, query: CallbackQuery):
     report_id = int(query.data.split(":")[2])
     lang = get_language(query.from_user.id)
-
     row = get_report(report_id)
+
     if not row:
         await query.answer(t("telegram.reports.not_found", lang), show_alert=True)
         return
@@ -226,11 +226,10 @@ async def report_view_callback(_, query: CallbackQuery):
             InputMediaPhoto(file_id, caption=card if i == 0 else "")
             for i, file_id in enumerate(photos)
         ]
-        await app.send_media_group(query.message.chat.id, media, message_thread_id=query.message.message_thread_id)
+        await query.message.reply_media_group(media)
         await query.message.reply(card, reply_markup=keyboard)
     else:
         await query.edit_message_text(card, reply_markup=keyboard)
-
 
 @app.on_callback_query(filters.regex(r"^report:close:(\d+)$"))
 @admin_only
