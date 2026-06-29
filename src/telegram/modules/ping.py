@@ -37,7 +37,7 @@ async def start_handler(_, message: Message):
 
     payload = message.command[1]
     
-    if not (payload.startswith("link-account:") or payload.startswith("unlink-account:")):
+    if not (payload.startswith("linkAccount-") or payload.startswith("unlinkAccount-")):
         await message.reply(t("telegram.welcome", lang))
         return
         
@@ -46,7 +46,7 @@ async def start_handler(_, message: Message):
         return
 
     try:
-        action, base64_token = payload.split(":", 1)
+        action, base64_token = payload.split("-", 1)
         
         missing_padding = len(base64_token) % 4
         if missing_padding:
@@ -57,7 +57,8 @@ async def start_handler(_, message: Message):
         
         amino_id, timestamp_str, secret_token = decoded_str.split(":", 2)
         timestamp = int(timestamp_str)
-    except Exception:
+    except Exception as e:
+        print(e)
         await message.reply(t("telegram.errors.invalid_token", lang))
         return
 
@@ -70,14 +71,14 @@ async def start_handler(_, message: Message):
         await message.reply(t("telegram.errors.token_expired", lang))
         return
 
-    if action == "link-account":
+    if action == "linkAccount":
         try:
             await link_altamino(amino_id, tg_id)
             await message.reply(t("telegram.success.linked", lang))
         except Exception:
             await message.reply(t("telegram.errors.link_failed", lang))
             
-    elif action == "unlink-account":
+    elif action == "unlinkAccount":
         try:
             await unlink_altamino(amino_id)
             await message.reply(t("telegram.success.unlinked", lang))
