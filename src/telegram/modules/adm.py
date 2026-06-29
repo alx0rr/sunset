@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from pyrogram import filters
 from pyrogram.types import Message, CallbackQuery
-from pyrogram.enums import ChatType
 from src.telegram import tgApp as app
+from src import altAminoClient as client
 
 from src.telegram.helpers.wrappers.adm import admin_exists, admin_only, owner_only
-from src.utils.db import add_admin, remove_admin, get_all_admins, get_admin, set_admin_language, get_language, unset_altamino_id
+from src.utils.db import add_admin, remove_admin, get_all_admins, get_admin, set_admin_language, get_language
 from src.utils.i18n import t, get_langs_list
 from src.telegram.helpers.keyboards.language import language_keyboard
 from src.telegram.helpers.keyboards.me import me_keyboard
@@ -127,14 +127,14 @@ async def me_handler(_, message: Message):
         row = dict(row)
         name = f"@{row['username']}" if row["username"] else str(row["user_id"])
         link = _user_link(row["user_id"], name)
-        text = f"**{link}**\nLanguage: {row.get('language', 'en')}\nAltAmino: {'✅' if row.get('altamino_id') else '❌'}"
+        text = f"**{link}**\nLanguage: {row.get('language', 'en')}"
     else:
         row={}
         text = " _(empty)_"
 
     await message.reply(
         text,
-        reply_markup=await me_keyboard(lang, row.get('altamino_id') is not None, message.chat.type == ChatType.PRIVATE ),
+        reply_markup=await me_keyboard(lang),
         disable_web_page_preview=True
     )
 
@@ -181,29 +181,8 @@ async def set_language_main_callback(_, callback_query: CallbackQuery):
     )
 
 
-@app.on_callback_query(filters.regex(r"unsetAltAmino"))
-@admin_only
-async def unsetAltAminoCallback(_, callback_query: CallbackQuery):
-    unset_altamino_id(callback_query.from_user.id)
-    await callback_query.message.reply(
-        "✅OK",
-        reply_markup=language_keyboard(),
-    )
+async def link_altamino(altaminoId, tgId):
+    await client.link_telegram(tgId, altaminoId)
 
-
-@app.on_callback_query(filters.regex(r"setAltAmino"))
-@admin_only
-async def setAltAminoCallback(_, callback_query: CallbackQuery):
-    await on_set_altaminoid(callback_query)
-
-
-
-
-
-
-async def on_set_altaminoid(msg: Message | CallbackQuery):
-    lang = get_language(msg.from_user.id)
-    if isinstance(msg, Message):
-        await msg.reply(t("unsupported", lang))
-    else:
-        await msg.message.reply(t("unsupported", lang))
+async def unlink_altamino(altaminoId):
+    await client.unlink_telegram(altaminoId)
