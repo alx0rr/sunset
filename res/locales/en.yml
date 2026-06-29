@@ -2,7 +2,7 @@ lang: "English"
 
 unsupported: ⚠️ This feature is temporarily unavailable. Stay tuned for updates.
 error: "❌ Error: {error}"
-
+maintenance: The bot is undergoing technical maintenance. Please try again later.
 telegram:
   bot_added: |
     👋 Hi! Thanks for adding me to the group.

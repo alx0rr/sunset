@@ -97,6 +97,8 @@ async def _edit_or_reply(target: Message | CallbackQuery, text: str, keyboard=No
 async def report_handler(_, message: Message):
     user_id = message.from_user.id
     lang = get_language(user_id)
+    await message.reply(t("maintenance", lang))
+    return
     clear(user_id)
     set_state(user_id, RS.text)
     update_data(user_id, photos=[], text=None)
