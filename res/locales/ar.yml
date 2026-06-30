@@ -1,169 +1,177 @@
-lang: "English"
 
-unsupported: ⚠️ This feature is temporarily unavailable. Stay tuned for updates.
-error: "❌ Error: {error}"
+lang: "العربية"
 
-maintenance: The bot is currently undergoing maintenance. Please try again later. 
+unsupported: "⚠️ هذه الميزة غير متاحة مؤقتًا. ترقبوا التحديثات."
+error: "❌ خطأ: {error}"
+
+maintenance: "البوت يخضع حاليًا للصيانة. يرجى المحاولة مرة أخرى لاحقًا."
 
 telegram:
   bot_added: |
-    👋 Hello! Thanks for adding me to the group.
-    Type /help to learn about my features!
-  new_member: "👋 Welcome, {name}!"
+    👋 مرحبًا! شكرًا لإضافتي إلى المجموعة.
+    اكتب /help للتعرف على ميزاتي!
+  new_member: "👋 مرحبًا، {name}!"
   welcome: |
-    👋 Hello! I am a bot for managing Altamino and handling reports.
-    Type /help to learn about my features!
-  help: "Currently empty, sorry"
-  owner_only: "🚫 Owner only"
-  admin_only: "🚫 Administrators only"
-  private_only: "🔒 This command is only available in private messages with the bot."
-  open_direct: "Message Bot"
+    👋 مرحبًا! أنا بوت لإدارة Altamino ومعالجة البلاغات.
+    اكتب /help للتعرف على ميزاتي!
+  help: "لا يوجد شيء هنا حاليًا، نعتذر."
+  owner_only: "🚫 هذا الأمر متاح للمالك فقط."
+  admin_only: "🚫 هذا الأمر متاح للمشرفين فقط."
+  private_only: "🔒 هذا الأمر متاح فقط في المحادثة الخاصة مع البوت."
+  open_direct: "مراسلة البوت"
 
   errors:
-    invalid_token: "❌ Invalid or corrupted linkage token."
-    token_expired: "⏳ The link token has expired. Please generate a new one in the app."
-    link_failed: "❌ Failed to link account. Please try again later."
-    unlink_failed: "❌ Failed to unlink account. Please try again later."
+    invalid_token: "❌ رمز الربط غير صالح أو تالف."
+    token_expired: "⏳ انتهت صلاحية رمز الربط. يرجى إنشاء رمز جديد من التطبيق."
+    link_failed: "❌ تعذر ربط الحساب. يرجى المحاولة مرة أخرى لاحقًا."
+    unlink_failed: "❌ تعذر إلغاء ربط الحساب. يرجى المحاولة مرة أخرى لاحقًا."
 
   success:
-    linked: "✅ Your Altamino account has been successfully linked!"
-    unlinked: "✅ Your Altamino account has been successfully unlinked."
+    linked: "✅ تم ربط حساب Altamino الخاص بك بنجاح!"
+    unlinked: "✅ تم إلغاء ربط حساب Altamino الخاص بك بنجاح."
 
   links:
-    unsupported: "⚠️ This resource is not yet supported for moderation"
-    usage: "Usage: `/mod https://altamino.top/...`"
-    invalid: "❌ This is not an Altamino link."
-    processing: "⏳ Processing..."
+    unsupported: "⚠️ هذا المورد غير مدعوم للإشراف بعد."
+    usage: "الاستخدام: `/mod https://altamino.top/...`"
+    invalid: "❌ هذا ليس رابط Altamino صالحًا."
+    processing: "⏳ جارٍ المعالجة..."
 
   altamino:
-    set: "🔗 Link Altamino Account"
-    remove: "❌ Unlink Altamino Account"
+    set: "🔗 ربط حساب Altamino"
+    remove: "❌ إلغاء ربط حساب Altamino"
 
   adm:
     add:
-      usage: "Usage: `/admin_add userId`"
-      exists: "⚠️ {target_name} is already an administrator"
-      added: "✅ {target_name} added to the administrators list"
+      usage: "الاستخدام: `/admin_add userId`"
+      exists: "⚠️ {target_name} مشرف بالفعل."
+      added: "✅ تمت إضافة {target_name} إلى قائمة المشرفين."
     remove:
-      usage: "Usage: `/admin_remove userId`"
-      removed: "✅ {target_name} removed from the administrators list"
-      not_exists: "⚠️ {target_name} is not an administrator"
+      usage: "الاستخدام: `/admin_remove userId`"
+      removed: "✅ تمت إزالة {target_name} من قائمة المشرفين."
+      not_exists: "⚠️ {target_name} ليس مشرفًا."
     langs:
-      unknown: "❌ Unknown language. Available: {langs}"
-      btn_select: "🌐 Select interface language:"
-      set: "✅ Language set to: "
-      change: "🌐 Change Language"
+      unknown: "❌ لغة غير معروفة. اللغات المتاحة: {langs}"
+      btn_select: "🌐 اختر لغة الواجهة:"
+      set: "✅ تم تعيين اللغة إلى: "
+      change: "🌐 تغيير اللغة"
 
   community:
-    open: "Open"
-    mod: "Configure"
-    panel: "🏘 Community Panel"
-    btn_edit: "✏️ Edit"
-    btn_delete: "🗑 Delete"
-    btn_back: "⬅️ Back"
+    open: "فتح"
+    mod: "إعداد"
+    panel: "🏘 لوحة المجتمع"
+    btn_edit: "✏️ تعديل"
+    btn_delete: "🗑 حذف"
+    btn_back: "⬅️ رجوع"
     create:
-      start: "🏗 Creating Community\n\nEnter community **name**:"
-      ask_aminoid: "Great! Now enter the **Amino ID** (latin characters, no spaces):"
-      ask_agent: "Enter the **agent link** (global Altamino profile):"
-      preview: |
-        📋 **Check the details:**
+      start: |
+        🏗 إنشاء مجتمع
 
-        🏷 Name: {name}
-        🔑 Amino ID: {aminoid}
-        👤 Agent: {agent}
-      btn_create: "✅ Create"
-      btn_edit_name: "✏️ Name"
-      btn_edit_aminoid: "✏️ Amino ID"
-      btn_edit_agent: "✏️ Agent"
-      btn_cancel: "🚫 Cancel"
-      creating: "⏳ Creating community..."
-      success: "✅ Community **{name}** created successfully!"
-      cancelled: "🚫 Creation cancelled."
-      error: "❌ Error: {error}\n\nPlease change the details or cancel creation."
-      edit_prompt: "✏️ Enter new value for **{field}**:"
-      missing_fields: "⚠️ Fill in required fields: {fields}"
+        أدخل **اسم المجتمع**:
+      ask_aminoid: "رائع! الآن أدخل **معرّف Amino** (أحرف لاتينية فقط، بدون مسافات):"
+      ask_agent: "أدخل **رابط الوكيل** (ملف Altamino العالمي):"
+      preview: |
+        📋 **راجع التفاصيل:**
+
+        🏷 الاسم: {name}
+        🔑 معرّف Amino: {aminoid}
+        👤 الوكيل: {agent}
+      btn_create: "✅ إنشاء"
+      btn_edit_name: "✏️ الاسم"
+      btn_edit_aminoid: "✏️ معرّف Amino"
+      btn_edit_agent: "✏️ الوكيل"
+      btn_cancel: "🚫 إلغاء"
+      creating: "⏳ جارٍ إنشاء المجتمع..."
+      success: "✅ تم إنشاء المجتمع **{name}** بنجاح!"
+      cancelled: "🚫 تم إلغاء الإنشاء."
+      error: "❌ خطأ: {error}\n\nيرجى تعديل البيانات أو إلغاء العملية."
+      edit_prompt: "✏️ أدخل قيمة جديدة للحقل **{field}**:"
+      missing_fields: "⚠️ يرجى ملء الحقول المطلوبة: {fields}"
     edit:
-      panel: "✏️ Edit Community"
-      btn_name: "🏷 Name"
-      btn_description: "📝 Description"
-      btn_icon: "🖼 Icon"
-      btn_banner: "🖼 Banner"
+      panel: "✏️ تعديل المجتمع"
+      btn_name: "🏷 الاسم"
+      btn_description: "📝 الوصف"
+      btn_icon: "🖼 الأيقونة"
+      btn_banner: "🖼 الغلاف"
     delete:
-      confirm: "⚠️ Are you sure you want to delete the community? This action is irreversible."
-      btn_confirm: "✅ Yes, delete"
-      btn_cancel: "🚫 Cancel"
-      deleting: "⏳ Deleting community..."
-      success: "✅ Community deleted successfully."
-      error: "❌ Error: {error}"
+      confirm: "⚠️ هل أنت متأكد من حذف المجتمع؟ لا يمكن التراجع عن هذا الإجراء."
+      btn_confirm: "✅ نعم، احذف"
+      btn_cancel: "🚫 إلغاء"
+      deleting: "⏳ جارٍ حذف المجتمع..."
+      success: "✅ تم حذف المجتمع بنجاح."
+      error: "❌ خطأ: {error}"
 
   profile:
-    panel_community: "👤 User Moderation Panel"
-    panel_global: "👤 Global User Panel"
-    btn_ban: "🔨 Ban"
-    btn_unban: "✅ Unban"
-    btn_hide: "🙈 Hide Profile"
-    btn_unhide: "👁 Show Profile"
-    btn_strike: "Strike"
-    btn_warn: "Warn"
-    btn_agent: "⭐ Agent"
-    btn_leader: "👑 Leader"
-    btn_curator: "🛡 Curator"
-    btn_unpromote: "📉 Demote Role"
-    btn_ban_global: "🔨 Restrict"
-    btn_unban_global: "✅ Unrestrict"
-    banned: "✅ User banned."
-    unbanned: "✅ User unbanned."
-    promoted_agent: "✅ Agent role assigned."
-    promoted_leader: "✅ Leader role assigned."
-    promoted_curator: "✅ Curator role assigned."
-    unpromoted: "✅ Role removed."
-    hided: "✅ Profile hidden."
-    unhided: "✅ Profile unhidden."
-    warned: "✅ Warning issued."
-    striked: "✅ User put in read-only mode."
-    error: "❌ Error: {error}"
+    panel_community: "👤 لوحة إدارة المستخدم"
+    panel_global: "👤 لوحة المستخدم العالمية"
+    btn_ban: "🔨 حظر"
+    btn_unban: "✅ إلغاء الحظر"
+    btn_hide: "🙈 إخفاء الملف الشخصي"
+    btn_unhide: "👁 إظهار الملف الشخصي"
+    btn_strike: "إنذار"
+    btn_warn: "تحذير"
+    btn_agent: "⭐ وكيل"
+    btn_leader: "👑 قائد"
+    btn_curator: "🛡 قيّم"
+    btn_unpromote: "📉 إزالة الرتبة"
+    btn_ban_global: "🔨 تقييد"
+    btn_unban_global: "✅ إلغاء التقييد"
+    banned: "✅ تم حظر المستخدم."
+    unbanned: "✅ تم إلغاء حظر المستخدم."
+    promoted_agent: "✅ تم منح رتبة الوكيل."
+    promoted_leader: "✅ تم منح رتبة القائد."
+    promoted_curator: "✅ تم منح رتبة القيّم."
+    unpromoted: "✅ تمت إزالة الرتبة."
+    hided: "✅ تم إخفاء الملف الشخصي."
+    unhided: "✅ تم إظهار الملف الشخصي."
+    warned: "✅ تم إصدار تحذير."
+    striked: "✅ تم وضع المستخدم في وضع القراءة فقط."
+    error: "❌ خطأ: {error}"
 
-    ask_reason: "📝 Provide a reason:"
-    ask_strike_time: "⏱ Select strike duration:"
-    ask_title: "📋 Enter title:"
-    ask_reason_optional: "📝 Provide a reason or skip this step:"
-    btn_skip: "⏭ Skip"
-    btn_cancel: "🚫 Cancel"
-    action_cancelled: "🚫 Action cancelled."
+    ask_reason: "📝 أدخل السبب:"
+    ask_strike_time: "⏱ اختر مدة الإنذار:"
+    ask_title: "📋 أدخل العنوان:"
+    ask_reason_optional: "📝 أدخل السبب أو تخطَّ هذه الخطوة:"
+    btn_skip: "⏭ تخطي"
+    btn_cancel: "🚫 إلغاء"
+    action_cancelled: "🚫 تم إلغاء العملية."
 
   chat:
-    panel: "💬 Chat Management Panel"
-    transfer_host_btn: "Transfer Host"
-    add_cohost_btn: "Add Co-host"
-    remove_cohost_btn: "Remove Co-host"
-    delete_chat_btn: "⚠️ Delete Chat"
-    disable_chat_btn: "⚠️ Disable Chat"
-    btn_cancel: "🚫 Cancel"
-    btn_confirm: "✅ Yes"
-    action_cancelled: "🚫 Action cancelled."
+    panel: "💬 لوحة إدارة الدردشة"
+    transfer_host_btn: "نقل الاستضافة"
+    add_cohost_btn: "إضافة مضيف مشارك"
+    remove_cohost_btn: "إزالة المضيف المشارك"
+    delete_chat_btn: "⚠️ حذف الدردشة"
+    disable_chat_btn: "⚠️ تعطيل الدردشة"
+    btn_cancel: "🚫 إلغاء"
+    btn_confirm: "✅ نعم"
+    action_cancelled: "🚫 تم إلغاء العملية."
 
-    deleted: "✅ Chat deleted."
-    disabled: "✅ Chat disabled."
-    action_success: "✅ Action completed successfully."
+    deleted: "✅ تم حذف الدردشة."
+    disabled: "✅ تم تعطيل الدردشة."
+    action_success: "✅ اكتملت العملية بنجاح."
 
-    delete_confirm_ask: "Are you sure you want to delete the chat?"
-    disable_confirm_ask: "Are you sure you want to disable the chat?"
-    add_user_text: "Send the user link:"
-    incorrect_link: "❌ Invalid link. Please send a user link."
+    delete_confirm_ask: "هل أنت متأكد من حذف الدردشة؟"
+    disable_confirm_ask: "هل أنت متأكد من تعطيل الدردشة؟"
+    add_user_text: "أرسل رابط المستخدم:"
+    incorrect_link: "❌ الرابط غير صالح. يرجى إرسال رابط مستخدم."
 
   reports:
-    ask_text: "📝 Describe the issue:"
-    ask_photos: "📎 Attach photos (optional) or press 'Send':"
-    photo_added: "✅ Photo added ({n}). Add more or send report."
-    only_photos: "⚠️ Only photo files are allowed."
-    sent: "✅ Report #{id} sent. Thank you!"
-    cancelled: "🚫 Submission cancelled."
-    card: "📨 Report #{id}\n👤 {name} (id: {user_id})\n\n{text}"
-    btn_write: "💬 Reply"
-    btn_close: "✅ Close"
-    btn_send: "📨 Send"
-    btn_cancel: "🚫 Cancel"
-    list_header: "📋 Open Reports: {total}"
-    empty: "✅ No open reports."
-    closed: "✅ Report #{id} closed."
-    not_found: "❌ Report not found."
+    ask_text: "📝 صف المشكلة:"
+    ask_photos: "📎 أرفق صورًا (اختياري) أو اضغط «إرسال»:"
+    photo_added: "✅ تمت إضافة الصورة ({n}). يمكنك إضافة المزيد أو إرسال البلاغ."
+    only_photos: "⚠️ يُسمح بملفات الصور فقط."
+    sent: "✅ تم إرسال البلاغ رقم {id}. شكرًا لك!"
+    cancelled: "🚫 تم إلغاء الإرسال."
+    card: |
+      📨 البلاغ رقم {id}
+      👤 {name} (المعرف: {user_id})
+
+      {text}
+    btn_write: "💬 رد"
+    btn_close: "✅ إغلاق"
+    btn_send: "📨 إرسال"
+    btn_cancel: "🚫 إلغاء"
+    list_header: "📋 البلاغات المفتوحة: {total}"
+    empty: "✅ لا توجد بلاغات مفتوحة."
+    closed: "✅ تم إغلاق البلاغ رقم {id}."
+    not_found: "❌ لم يتم العثور على البلاغ."
