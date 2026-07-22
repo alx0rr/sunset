@@ -1,5 +1,5 @@
 from src.config import ALTAMINO_RELOGIN_HITTED_TIMEOUT, ALTAMINO_RELOGIN_TIMEOUT, ALTAMINO_EMAIL, ALTAMINO_PASSWORD, ALTAMINO_CLIENT_TYPE
-from src import altAminoClient as client
+from src import client
 from altamino import log
 from asyncio import sleep, CancelledError
 

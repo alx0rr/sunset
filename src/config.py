@@ -4,11 +4,6 @@ from time import time
 
 load_dotenv()
 
-API_ID = int(os.getenv("API_ID"))
-API_HASH = os.getenv("API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-LINKING_SECRET_KEY = os.getenv("LINKING_SECRET_KEY")
-
 ALTAMINO_RELOGIN_TIMEOUT = int(os.getenv("ALTAMINO_RELOGIN_TIMEOUT", "3600"))
 ALTAMINO_RELOGIN_HITTED_TIMEOUT = int(os.getenv("ALTAMINO_RELOGIN_HITTED_TIMEOUT", "60"))
 
@@ -28,4 +23,3 @@ STARTUP = time()
 
 
 DB_PATH = os.getenv("DB_PATH", "bot.db")
-OWNER_IDS: set[int] = {8508164100, 7870596439}

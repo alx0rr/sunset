@@ -1,8 +1,7 @@
 
-from src import altAminoClient as client
+from src import client
 from src import log
 from src.utils.loader import load_altamino_modules
-from src.config import ALTAMINO_EMAIL, ALTAMINO_PASSWORD, ALTAMINO_CLIENT_TYPE
 from src.altamino.relogin import relogin_task
 from asyncio import create_task
 

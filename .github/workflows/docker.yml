@@ -26,6 +26,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/altamino/trinity:latest
+          tags: ghcr.io/alx0rr/sunset:latest
           build-args: |
             GITHUB_TOKEN=${{ secrets.LIBS_TOKEN }}

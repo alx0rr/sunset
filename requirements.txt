@@ -1,5 +1,3 @@
-tgcrypto
 python-dotenv
-kurigram
 pyyaml
 git+https://github.com/altamino/altamino.py.git
