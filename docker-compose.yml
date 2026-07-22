@@ -1,0 +1,8 @@
+services:
+  bot:
+    image: ghcr.io/alx0rr/sunset:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
