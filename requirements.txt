@@ -1,3 +1,0 @@
-python-dotenv
-pyyaml
-git+https://github.com/altamino/altamino.py.git
