@@ -1,0 +1,88 @@
+lang: "English"
+
+common:
+  enabled: "✅ on"
+  disabled: "❌ off"
+  farewell_text: "Goodbye, <@{nick}@>"
+  greeting_text: "Welcome, <@{nick}@>!\nYou're member #{members} in {title}!\nGlad to have you here"
+  greeting_text_image: "{nick}, welcome to\n{title}\nYou're member #{members}"
+
+help: |
+  [BC]Check out what I can do [HERE|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+
+games:
+  roll: |
+    [BC]🎲 Dice
+
+    <@{nick}@> rolls: {a} and {b}
+    Total: {total}
+
+  who: |
+    [BC]🔮 Who {question}
+
+    My answer: <@{nick}@>
+
+  guess_start: |
+    [BC]🔢 Guess the number
+
+    I picked a number from 1 to 100.
+    Type /guess <number>
+
+  guess_need_number: "[BC]⚠ Enter a number from 1 to 100"
+  guess_higher: "[BC]⬆ Higher"
+  guess_lower: "[BC]⬇ Lower"
+
+  guess_win: |
+    [BC]🎉 Correct!
+
+    <@{nick}@> got it in {tries} tries
+
+chat:
+  settings: |
+    [BC]⚙ Chat settings
+
+    Title: {name}
+    Members: {members}
+
+    Greetings: {greeting} ({greeting_type})
+    Farewells: {farewell}
+    Commands: {commands}
+
+community:
+  settings: |
+    [BC]⚙ Community settings
+
+    Name: {name}
+    Members: {members}
+    Activity: {heat}
+    Language: {language}
+
+    Welcome message for new members: {welcome}
+
+ok:
+  done: "[BC]✅ Done"
+  greeting_on: "[BC]✅ Greetings enabled"
+  greeting_off: "[BC]❌ Greetings disabled"
+  greeting_text: "[BC]✅ Greeting text updated"
+  greeting_image_on: "[BC]✅ Greetings set to image mode"
+  greeting_text_on: "[BC]✅ Greetings set to text mode"
+  farewell_on: "[BC]✅ Farewells enabled"
+  farewell_off: "[BC]❌ Farewells disabled"
+  farewell_text: "[BC]✅ Farewell text updated"
+  commands_on: "[BC]✅ Commands enabled"
+  commands_off: "[BC]❌ Commands disabled"
+  welcome_on: "[BC]✅ Welcome message for new members enabled"
+  welcome_off: "[BC]❌ Welcome message for new members disabled"
+  welcome_text: "[BC]✅ Welcome text updated"
+
+errors:
+  bad_bool: "[BC]⚠ Specify on or off"
+  empty_text: "[BC]⚠ Text can't be empty"
+  bad_url: "[BC]⚠ Invalid link"
+  another_community: "[BC]⚠ I can't join a chat in another community.\nInvite me to the community first, then to the chat."
+  no_data: "[BC]⚠ Data isn't loaded yet, try again later"
+  no_permission: "[BC]⛔ Not enough permissions"
+  no_permission_admin: "[BC]⛔ Leaders and agents only"
+  no_permission_global: "[BC]⛔ Platform staff only"
+  no_permission_chat: "[BC]⛔ Chat host and co-hosts only"
+  no_permission_host: "[BC]⛔ Chat host only"

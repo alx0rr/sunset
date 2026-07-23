@@ -1,6 +1,7 @@
 from src.aa import client
 from src.utils.i18n import t
 from src.utils.wrappers.admin_only import require_chat_staff, require_local_staff
+from src.utils.wrappers.chat_settings import commands_enable_required
 from src.utils.db import ChatSettings, CommunitySettings, GreetingType
 from src.utils.cache.community import apply_community_settings
 from src.utils.cache.chat import apply_chat_settings
@@ -25,15 +26,16 @@ async def on_chat_settings(event: respObject.Event):
     text = t("chat.settings", comId=event.comId).format(
         name=chat.title,
         members=chat.membersCount,
-        greeting=t(f"common.{'on' if s.greeting_enabled else 'off'}", comId=event.comId),
+        greeting=t(f"common.{'enabled' if s.greeting_enabled else 'disabled'}", comId=event.comId),
         greeting_type=s.greeting_type.value,
-        farewell=t(f"common.{'on' if s.farewell_enabled else 'off'}", comId=event.comId),
-        commands=t(f"common.{'on' if s.commands_enabled else 'off'}", comId=event.comId),
+        farewell=t(f"common.{'enabled' if s.farewell_enabled else 'disabled'}", comId=event.comId),
+        commands=t(f"common.{'enabled' if s.commands_enabled else 'disabled'}", comId=event.comId),
     )
     await reply(event, text)
 
 
 @client.command(["/com-settings"])
+@commands_enable_required()
 @require_local_staff
 async def on_com_settings(event: respObject.Event):
     info = await event.state.get("community")
@@ -49,7 +51,7 @@ async def on_com_settings(event: respObject.Event):
         members=community.usersCount,
         heat=community.heat,
         language=community.primaryLanguage,
-        welcome=t(f"common.{'on' if s.welcome_enabled else 'off'}", comId=event.comId),
+        welcome=t(f"common.{'enabled' if s.welcome_enabled else 'disabled'}", comId=event.comId),
     )
     await reply(event, text)
 
@@ -57,6 +59,7 @@ async def on_com_settings(event: respObject.Event):
 #chats
 
 @client.command(["/greeting-image-on"])
+@commands_enable_required()
 @require_chat_staff
 async def cmd_greeting_image_on(event: respObject.Event):
     await apply_chat_settings(
@@ -66,6 +69,7 @@ async def cmd_greeting_image_on(event: respObject.Event):
 
 
 @client.command(["/greeting-text-on"])
+@commands_enable_required()
 @require_chat_staff
 async def cmd_greeting_text_on(event: respObject.Event):
     await apply_chat_settings(
@@ -75,6 +79,7 @@ async def cmd_greeting_text_on(event: respObject.Event):
 
 
 @client.command(["/greeting-text"])
+@commands_enable_required()
 @require_chat_staff
 async def cmd_greeting_text(event: respObject.Event):
     await apply_chat_settings(
@@ -84,6 +89,7 @@ async def cmd_greeting_text(event: respObject.Event):
 
 
 @client.command(["/greeting"])
+@commands_enable_required()
 @require_chat_staff
 async def cmd_greeting(event: respObject.Event):
     val = _parse_bool(event.message.content)
@@ -100,6 +106,7 @@ async def cmd_greeting(event: respObject.Event):
 
 
 @client.command(["/farewell-text"])
+@commands_enable_required()
 @require_chat_staff
 async def cmd_farewell_text(event: respObject.Event):
     await apply_chat_settings(event, farewell_text=event.message.content)
@@ -107,6 +114,7 @@ async def cmd_farewell_text(event: respObject.Event):
 
 
 @client.command(["/farewell"])
+@commands_enable_required()
 @require_chat_staff
 async def cmd_farewell(event: respObject.Event):
     val = _parse_bool(event.message.content)
@@ -134,6 +142,7 @@ async def cmd_commands(event: respObject.Event):
 #communities
 
 @client.command(["/com-welcome-text"])
+@commands_enable_required()
 @require_local_staff
 async def cmd_com_welcome_text(event: respObject.Event):
     if event.comId is None:
@@ -148,6 +157,7 @@ async def cmd_com_welcome_text(event: respObject.Event):
 
 
 @client.command(["/com-welcome"])
+@commands_enable_required()
 @require_local_staff
 async def cmd_com_welcome(event: respObject.Event):
     if event.comId is None:

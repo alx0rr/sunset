@@ -1,0 +1,88 @@
+lang: "العربية"
+
+common:
+  enabled: "✅ مفعّل"
+  disabled: "❌ معطّل"
+  farewell_text: "وداعًا، <@{nick}@>"
+  greeting_text: "أهلًا بك، <@{nick}@>!\nأنت العضو رقم {members} في {title}!\nسعيد بانضمامك"
+  greeting_text_image: "{nick}، أهلًا بك في\n{title}\nأنت العضو رقم {members}"
+
+help: |
+  [BC]تعرّف على ما يمكنني فعله [من هنا|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+
+games:
+  roll: |
+    [BC]🎲 النرد
+
+    <@{nick}@> رمى: {a} و {b}
+    المجموع: {total}
+
+  who: |
+    [BC]🔮 من {question}
+
+    إجابتي: <@{nick}@>
+
+  guess_start: |
+    [BC]🔢 خمّن الرقم
+
+    اخترت رقمًا من 1 إلى 100.
+    اكتب /guess <رقم>
+
+  guess_need_number: "[BC]⚠ اكتب رقمًا من 1 إلى 100"
+  guess_higher: "[BC]⬆ أكبر"
+  guess_lower: "[BC]⬇ أصغر"
+
+  guess_win: |
+    [BC]🎉 إجابة صحيحة!
+
+    <@{nick}@> خمّنه في {tries} محاولات
+
+chat:
+  settings: |
+    [BC]⚙ إعدادات الدردشة
+
+    العنوان: {name}
+    الأعضاء: {members}
+
+    الترحيب: {greeting} ({greeting_type})
+    الوداع: {farewell}
+    الأوامر: {commands}
+
+community:
+  settings: |
+    [BC]⚙ إعدادات المجتمع
+
+    الاسم: {name}
+    الأعضاء: {members}
+    النشاط: {heat}
+    اللغة: {language}
+
+    رسالة الترحيب بالأعضاء الجدد: {welcome}
+
+ok:
+  done: "[BC]✅ تم"
+  greeting_on: "[BC]✅ تم تفعيل الترحيب"
+  greeting_off: "[BC]❌ تم تعطيل الترحيب"
+  greeting_text: "[BC]✅ تم تحديث نص الترحيب"
+  greeting_image_on: "[BC]✅ الترحيب بوضع الصورة"
+  greeting_text_on: "[BC]✅ الترحيب بوضع النص"
+  farewell_on: "[BC]✅ تم تفعيل رسائل الوداع"
+  farewell_off: "[BC]❌ تم تعطيل رسائل الوداع"
+  farewell_text: "[BC]✅ تم تحديث نص الوداع"
+  commands_on: "[BC]✅ تم تفعيل الأوامر"
+  commands_off: "[BC]❌ تم تعطيل الأوامر"
+  welcome_on: "[BC]✅ تم تفعيل الترحيب بالأعضاء الجدد"
+  welcome_off: "[BC]❌ تم تعطيل الترحيب بالأعضاء الجدد"
+  welcome_text: "[BC]✅ تم تحديث نص الترحيب"
+
+errors:
+  bad_bool: "[BC]⚠ حدّد مفعّل أو معطّل"
+  empty_text: "[BC]⚠ لا يمكن ترك النص فارغًا"
+  bad_url: "[BC]⚠ رابط غير صالح"
+  another_community: "[BC]⚠ لا أستطيع الانضمام إلى دردشة في مجتمع آخر.\nادعُني إلى المجتمع أولًا، ثم إلى الدردشة."
+  no_data: "[BC]⚠ البيانات لم تُحمّل بعد، حاول لاحقًا"
+  no_permission: "[BC]⛔ صلاحيات غير كافية"
+  no_permission_admin: "[BC]⛔ للقادة والوكلاء فقط"
+  no_permission_global: "[BC]⛔ لطاقم المنصة فقط"
+  no_permission_chat: "[BC]⛔ لمضيف الدردشة والمضيفين المشاركين فقط"
+  no_permission_host: "[BC]⛔ لمضيف الدردشة فقط"

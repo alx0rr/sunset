@@ -1,0 +1,88 @@
+lang: "Português"
+
+common:
+  enabled: "✅ ligado"
+  disabled: "❌ desligado"
+  farewell_text: "Adeus, <@{nick}@>"
+  greeting_text: "Bem-vindo, <@{nick}@>!\nVocê é o membro #{members} em {title}!\nQue bom te ter aqui"
+  greeting_text_image: "{nick}, bem-vindo a\n{title}\nVocê é o membro #{members}"
+
+help: |
+  [BC]Veja o que eu posso fazer [AQUI|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+
+games:
+  roll: |
+    [BC]🎲 Dados
+
+    <@{nick}@> tira: {a} e {b}
+    Total: {total}
+
+  who: |
+    [BC]🔮 Quem {question}
+
+    Minha resposta: <@{nick}@>
+
+  guess_start: |
+    [BC]🔢 Adivinhe o número
+
+    Pensei em um número de 1 a 100.
+    Digite /guess <número>
+
+  guess_need_number: "[BC]⚠ Digite um número de 1 a 100"
+  guess_higher: "[BC]⬆ Maior"
+  guess_lower: "[BC]⬇ Menor"
+
+  guess_win: |
+    [BC]🎉 Acertou!
+
+    <@{nick}@> conseguiu em {tries} tentativas
+
+chat:
+  settings: |
+    [BC]⚙ Configurações do chat
+
+    Título: {name}
+    Membros: {members}
+
+    Boas-vindas: {greeting} ({greeting_type})
+    Despedidas: {farewell}
+    Comandos: {commands}
+
+community:
+  settings: |
+    [BC]⚙ Configurações da comunidade
+
+    Nome: {name}
+    Membros: {members}
+    Atividade: {heat}
+    Idioma: {language}
+
+    Mensagem de boas-vindas para novos membros: {welcome}
+
+ok:
+  done: "[BC]✅ Feito"
+  greeting_on: "[BC]✅ Boas-vindas ativadas"
+  greeting_off: "[BC]❌ Boas-vindas desativadas"
+  greeting_text: "[BC]✅ Texto de boas-vindas atualizado"
+  greeting_image_on: "[BC]✅ Boas-vindas em modo imagem"
+  greeting_text_on: "[BC]✅ Boas-vindas em modo texto"
+  farewell_on: "[BC]✅ Despedidas ativadas"
+  farewell_off: "[BC]❌ Despedidas desativadas"
+  farewell_text: "[BC]✅ Texto de despedida atualizado"
+  commands_on: "[BC]✅ Comandos ativados"
+  commands_off: "[BC]❌ Comandos desativados"
+  welcome_on: "[BC]✅ Mensagem de boas-vindas ativada"
+  welcome_off: "[BC]❌ Mensagem de boas-vindas desativada"
+  welcome_text: "[BC]✅ Texto de boas-vindas atualizado"
+
+errors:
+  bad_bool: "[BC]⚠ Escolha ligado ou desligado"
+  empty_text: "[BC]⚠ O texto não pode estar vazio"
+  bad_url: "[BC]⚠ Link inválido"
+  another_community: "[BC]⚠ Não posso entrar em um chat de outra comunidade.\nMe convide para a comunidade primeiro, depois para o chat."
+  no_data: "[BC]⚠ Os dados ainda não foram carregados, tente mais tarde"
+  no_permission: "[BC]⛔ Permissões insuficientes"
+  no_permission_admin: "[BC]⛔ Apenas para líderes e agentes"
+  no_permission_global: "[BC]⛔ Apenas para a equipe da plataforma"
+  no_permission_chat: "[BC]⛔ Apenas para o host e co-hosts do chat"
+  no_permission_host: "[BC]⛔ Apenas para o host do chat"

@@ -33,4 +33,4 @@ async def on_ping(event: respObject.Event):
         await reply(event, t("errors.bad_url", comId=event.comId))
         return
 
-    await reply(event, t("ok", comId=event.comId))
+    await reply(event, t("ok.done", comId=event.comId))

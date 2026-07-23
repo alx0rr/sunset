@@ -1,22 +1,26 @@
-
 lang: "Русский"
 
-ok: "✅ Выполнено"
+common:
+  enabled: "✅ вкл"
+  disabled: "❌ выкл"
+  farewell_text: "Прощай, <@{nick}@>"
+  greeting_text: "Привет, <@{nick}@>!\nТы {members}-й участник в {title}!\nДобро пожаловать"
+  greeting_text_image: "{nick}, добро пожаловать в\n{title}\nТы {members}-й участник"
 
+help: |
+  [BC]Посмотреть мои возможности можно [ТУТ|https://teletype.in/@alx0rr/hzMR-L3wnL-]
 
 games:
   roll: |
     [BC]🎲 Кости
 
-    {nick} выбрасывает: {a} и {b}
+    <@{nick}@> выбрасывает: {a} и {b}
     Сумма: {total}
 
   who: |
-    [BC]🔮 {question}
+    [BC]🔮 Кто {question}
 
-    Мой ответ: {nick}
-
-  who_default: "Кто тут самый крутой?"
+    Мой ответ: <@{nick}@>
 
   guess_start: |
     [BC]🔢 Угадай число
@@ -25,28 +29,13 @@ games:
     Пиши /guess <число>
 
   guess_need_number: "[BC]⚠ Нужно число от 1 до 100"
-
   guess_higher: "[BC]⬆ Больше"
-
   guess_lower: "[BC]⬇ Меньше"
 
   guess_win: |
     [BC]🎉 Угадал!
 
-    {nick} справился за {tries} попыток
-
-
-
-
-help: |
-  [BC]Посмотреть мои возможности можно [ТУТ|https://teletype.in/@alx0rr/hzMR-L3wnL-]
-
-common:
-  on: "✅ вкл"
-  off: "❌ выкл"
-  farewell_text: "Прощай <@{nick}@>"
-  greeting_text: "Привет <@{nick}@>!\nТы {members}-й участник в {title}!\nДобро пожаловать"
-  greeting_text_image: "{nick}, Добро пожаловать в\n{title}\nТы {members}-й участник"
+    <@{nick}@> справился за {tries} попыток
 
 chat:
   settings: |
@@ -70,8 +59,8 @@ community:
 
     Приветствие новых участников: {welcome}
 
-
 ok:
+  done: "[BC]✅ Выполнено"
   greeting_on: "[BC]✅ Приветствия включены"
   greeting_off: "[BC]❌ Приветствия выключены"
   greeting_text: "[BC]✅ Текст приветствия обновлён"
@@ -89,9 +78,8 @@ ok:
 errors:
   bad_bool: "[BC]⚠ Укажи вкл или выкл"
   empty_text: "[BC]⚠ Текст не может быть пустым"
-  bad_url: "[BC]⚠ Некоректная ссылка"
-  another_community: "[BC]⚠ Я не могу вступить в чат другого сообщества. Сначала пригласите меня в него а после в нем пригласите в чат."
-
+  bad_url: "[BC]⚠ Некорректная ссылка"
+  another_community: "[BC]⚠ Я не могу вступить в чат другого сообщества.\nСначала пригласите меня в сообщество, а потом уже в чат."
   no_data: "[BC]⚠ Данные не загружены, попробуй позже"
   no_permission: "[BC]⛔ Недостаточно прав"
   no_permission_admin: "[BC]⛔ Только для лидеров и агентов сообщества"

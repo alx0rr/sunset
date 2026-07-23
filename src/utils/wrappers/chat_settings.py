@@ -11,7 +11,7 @@ def _get_event(*args, **kwargs):
 
 def _get_uid(event) -> str | None:
     try:
-        return event.message.author.uid
+        return event.message.author.userId
     except AttributeError:
         return None
 

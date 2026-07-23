@@ -36,7 +36,7 @@ def _get_role(event) -> int | None:
 
 def _get_uid(event) -> str | None:
     try:
-        return event.message.author.uid
+        return event.message.author.userId
     except AttributeError:
         return None
 
@@ -45,15 +45,15 @@ async def _get_chat(event) -> dict | None:
     if not event.message.chatId:
         return None
     try:
-        return await chat_cache.get((event.comId, event.message.chatId))
-    except Exception:
+        return chat_cache.get((event.comId, event.message.chatId))
+    except Exception as e:
         return None
 
 
 # ---------- chat role checks ----------
 
 def is_chat_host(chat: Chat, uid: str) -> bool:
-    return chat is not None and chat.author == uid
+    return chat is not None and chat.author.userId == uid
 
 
 def is_chat_cohost(chat: Chat, uid: str) -> bool:
@@ -132,23 +132,3 @@ def require_role(*roles: int, locale_key: str = "errors.no_permission"):
 
 require_chat_host = _make_chat_wrapper(is_chat_host, "errors.no_permission_host")
 require_chat_staff = _make_chat_wrapper(is_chat_staff, "errors.no_permission_chat")
-
-
-
-
-def require_commands_enabled(func):
-    @wraps(func)
-    async def inner(*args, **kwargs):
-        event = _get_event(*args, **kwargs)
-        role = _get_role(event)
-
-        # стафф может пользоваться командами даже при выключенном модуле
-        if role is None or not UserRole.is_privileged_role(role):
-            chat = await _get_chat(event)
-            s = chat.get("settings")
-            if s is None: return
-            if not s.commands_enabled:
-                return
-
-        return await func(*args, **kwargs)
-    return inner
