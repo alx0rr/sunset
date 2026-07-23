@@ -2,7 +2,7 @@
 from src import client
 from src import log
 from src.utils.loader import load_altamino_modules
-from src.altamino.relogin import relogin_task
+from src.aa.relogin import relogin_task
 from asyncio import create_task
 
 task_relogin = None

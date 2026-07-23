@@ -1,3 +1,5 @@
 python-dotenv
+aiosqlite
 pyyaml
+pillow
 git+https://github.com/altamino/altamino.py.git
