@@ -46,8 +46,8 @@ async def refresh_task():
 async def online_task():
     while not _communities:
         await asyncio.sleep(1)
+    log.info(f"[altamino] Online task started")
     while True:
-        log.info(f"[altamino] Online task started")
         communities = list(_communities)
 
         for com_id in communities:

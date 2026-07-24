@@ -6,7 +6,7 @@
 
 ```bash
 git clone -b starter https://github.com/alx0rr/sunset.git
-cd trinity
+cd sunset
 cp .env.example .env   # fill in your variables
 docker compose up -d
 ```
@@ -15,7 +15,7 @@ docker compose up -d
 
 ```bash
 git clone https://github.com/alx0rr/sunset.git
-cd trinity
+cd sunset
 cp .env.example .env   # fill in your variables
 pip install -r requirements.txt
 python main.py

@@ -35,6 +35,7 @@ async def on_invite(event: respObject.Event):
             return
         c = event.sub_client or event.client
         await c.join_chat(info.objectId)
+        await c.send_message(info.objectId, t(f"on_chat_invite", comId=event.comId))
             
     elif info.objectType == args.ObjectType.Community:
         await client.join_community(info.objectId)

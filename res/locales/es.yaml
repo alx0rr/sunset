@@ -7,57 +7,180 @@ common:
   greeting_text: "¡Bienvenido, <@{nick}@>!\n¡Eres el miembro #{members} en {title}!\nQué bueno tenerte aquí"
   greeting_text_image: "{nick}, bienvenido a\n{title}\nEres el miembro #{members}"
 
+
+on_chat_invite: |
+  [BC]👋 ¡Hola!
+  [C]Soy Sunset — un bot de bienvenidas, juegos, ajustes y mucho más.
+  [C]Lista de comandos: /help
+
+
 help: |
-  [BC]Mira lo que puedo hacer [AQUÍ|https://teletype.in/@alx0rr/0oQTU0gJtVX]
+  [BC]Mira lo que puedo hacer [AQUÍ|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+
+
 
 games:
   roll: |
     [BC]🎲 Dados
 
-    <@{nick}@> saca: {a} y {b}
-    Total: {total}
+    [C]<@{nick}@> lanza los dados
+    [BC]{a}  ✦  {b}
+    [C]Total: {total}
+
+  dice: |
+    [BC]🎲 Tirada d{sides}
+
+    [C]<@{nick}@> saca
+    [BC]{result}
+
+  coin_heads: |
+    [BC]🪙 Moneda
+
+    [C]<@{nick}@>, salió
+    [BC]Cara
+
+  coin_tails: |
+    [BC]🪙 Moneda
+
+    [C]<@{nick}@>, salió
+    [BC]Cruz
+
+  choose: |
+    [BC]🤔 Mi elección
+
+    [BC]{pick}
+
+  choose_help: |
+    [BC]🤔 ¿Qué elijo?
+
+    [C]Da opciones separadas por coma u "o"
+    [C]Ejemplo: /choose té o café
+
+  roulette_safe: |
+    [BC]🔫 Ruleta rusa
+
+    [C]*clic*...
+    [C]<@{nick}@> tuvo suerte hoy 😮‍💨
+
+  roulette_bang: |
+    [BC]🔫 Ruleta rusa
+
+    [C]¡BANG! 💥
+    [C]<@{nick}@> quedó fuera ☠️
+
+  ball_ask: |
+    [BC]🎱 Bola mágica
+
+    [C]Haz una pregunta y responderé
+    [C]Ejemplo: /8ball ¿lloverá?
+
+  ball_0: "[BC]🎱\n[C]Es seguro"
+  ball_1: "[BC]🎱\n[C]Creo que sí"
+  ball_2: "[BC]🎱\n[C]Sin duda"
+  ball_3: "[BC]🎱\n[C]Muy probablemente"
+  ball_4: "[BC]🎱\n[C]Pregunta más tarde"
+  ball_5: "[BC]🎱\n[C]No cuentes con ello"
+  ball_6: "[BC]🎱\n[C]Muy dudoso"
+  ball_7: "[BC]🎱\n[C]Mi respuesta es no"
+  ball_8: "[BC]🎱\n[C]Aún no está claro"
+  ball_9: "[BC]🎱\n[C]Ni lo pienses"
+
+  percent_ask: |
+    [BC]📊 Medidor
+
+    [C]Dime qué medir
+    [C]Ejemplo: /percent suerte
+
+  percent: |
+    [BC]📊 Resultado de la medición
+
+    [C]<@{nick}@> tiene
+    [BC]{value}%
+    [C]{what}
+
+  ship: |
+    [BC]💘 Ship del día
+
+    [C]<@{a}@>  ❤️  <@{b}@>
+    [BC]{love}%
+
+  rps_help: |
+    [BC]✊ Piedra-papel-tijera
+
+    [C]Escribe: /rps piedra
+    [C]o tijera, o papel
+
+  rps_name_0: "🪨 piedra"
+  rps_name_1: "✂️ tijera"
+  rps_name_2: "📄 papel"
+
+  rps_win: |
+    [BC]✊ Piedra-papel-tijera
+
+    [C]{user}  vs  {bot}
+    [C]¡<@{nick}@> gana! 🎉
+
+  rps_lose: |
+    [BC]✊ Piedra-papel-tijera
+
+    [C]{user}  vs  {bot}
+    [C]<@{nick}@> pierde 😢
+
+  rps_draw: |
+    [BC]✊ Piedra-papel-tijera
+
+    [C]{user}  vs  {bot}
+    [C]Empate 🤝
 
   who: |
-    [BC]🔮 Quién {question}
+    [BC]🔮 Adivinación
 
-    Mi respuesta: <@{nick}@>
+    [C]¿Quién {question}?
+    [C]Mi respuesta: <@{nick}@>
 
   guess_start: |
     [BC]🔢 Adivina el número
 
-    Pensé un número del 1 al 100.
-    Escribe /guess <número>
+    [C]Pensé un número del 1 al 100
+    [C]Escribe /guess <número>
 
-  guess_need_number: "[BC]⚠ Escribe un número del 1 al 100"
-  guess_higher: "[BC]⬆ Más alto"
-  guess_lower: "[BC]⬇ Más bajo"
+  guess_need_number: |
+    [BC]🔢 Adivina el número
+
+    [C]Escribe un número del 1 al 100
+
+  guess_higher: |
+    [BC]⬆ Más alto
+
+  guess_lower: |
+    [BC]⬇ Más bajo
 
   guess_win: |
     [BC]🎉 ¡Correcto!
 
-    <@{nick}@> lo logró en {tries} intentos
+    [C]<@{nick}@> lo logró
+    [C]en {tries} intentos
 
 chat:
   settings: |
     [BC]⚙ Ajustes del chat
 
-    Título: {name}
-    Miembros: {members}
+    [C]「 {name} 」
+    [C]👥 {members} miembros
 
-    Bienvenidas: {greeting} ({greeting_type})
-    Despedidas: {farewell}
-    Comandos: {commands}
+    ✦ Bienvenidas: {greeting} ({greeting_type})
+    ✦ Despedidas: {farewell}
+    ✦ Comandos: {commands}
 
 community:
   settings: |
     [BC]⚙ Ajustes de la comunidad
 
-    Nombre: {name}
-    Miembros: {members}
-    Actividad: {heat}
-    Idioma: {language}
+    [C]「 {name} 」
+    [C]👥 {members}  ·  🔥 {heat}
+    [C]🌐 {language}
 
-    Mensaje de bienvenida para nuevos miembros: {welcome}
+    ✦ Bienvenida a nuevos: {welcome}
 
 ok:
   done: "[BC]✅ Listo"
@@ -71,11 +194,12 @@ ok:
   farewell_text: "[BC]✅ Texto de despedida actualizado"
   commands_on: "[BC]✅ Comandos activados"
   commands_off: "[BC]❌ Comandos desactivados"
-  welcome_on: "[BC]✅ Mensaje de bienvenida activado"
-  welcome_off: "[BC]❌ Mensaje de bienvenida desactivado"
+  welcome_on: "[BC]✅ Bienvenida a nuevos activada"
+  welcome_off: "[BC]❌ Bienvenida a nuevos desactivada"
   welcome_text: "[BC]✅ Texto de bienvenida actualizado"
 
 errors:
+  flood: "[BC]🚫 Demasiados mensajes, espera un momento"
   bad_bool: "[BC]⚠ Indica activado o desactivado"
   empty_text: "[BC]⚠ El texto no puede estar vacío"
   bad_url: "[BC]⚠ Enlace inválido"
@@ -84,5 +208,5 @@ errors:
   no_permission: "[BC]⛔ Permisos insuficientes"
   no_permission_admin: "[BC]⛔ Solo para líderes y agentes"
   no_permission_global: "[BC]⛔ Solo para el staff de la plataforma"
-  no_permission_chat: "[BC]⛔ Solo para el anfitrión y co-anfitriones del chat"
+  no_permission_chat: "[BC]⛔ Solo para el anfitrión y co-anfitriones"
   no_permission_host: "[BC]⛔ Solo para el anfitrión del chat"

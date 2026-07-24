@@ -50,6 +50,20 @@ async def _get_chat(event) -> dict | None:
         return None
 
 
+async def check_chat_staff(event) -> bool:
+    if _is_self(event):
+        return True
+
+    role = _get_role(event)
+    if role is not None and UserRole.is_privileged_role(role):
+        return True
+
+    uid = _get_uid(event)
+    chat = await _get_chat(event)
+    return bool(uid and chat and is_chat_staff(chat.get("info"), uid))
+
+
+
 # ---------- chat role checks ----------
 
 def is_chat_host(chat: Chat, uid: str) -> bool:

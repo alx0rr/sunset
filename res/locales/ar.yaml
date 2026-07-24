@@ -7,57 +7,180 @@ common:
   greeting_text: "أهلًا بك، <@{nick}@>!\nأنت العضو رقم {members} في {title}!\nسعيد بانضمامك"
   greeting_text_image: "{nick}، أهلًا بك في\n{title}\nأنت العضو رقم {members}"
 
+
+on_chat_invite: |
+  [BC]👋 مرحبًا!
+  [C]أنا Sunset — بوت للترحيب والألعاب والإعدادات وأكثر.
+  [C]قائمة الأوامر: /help
+
+
 help: |
-  [BC]تعرّف على ما يمكنني فعله [من هنا|https://teletype.in/@alx0rr/8KcMsNj9DwJ]
+  [BC]تعرّف على ما يمكنني فعله [من هنا|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+
+
 
 games:
   roll: |
     [BC]🎲 النرد
 
-    <@{nick}@> رمى: {a} و {b}
-    المجموع: {total}
+    [C]<@{nick}@> يرمي النرد
+    [BC]{a}  ✦  {b}
+    [C]المجموع: {total}
+
+  dice: |
+    [BC]🎲 رمية d{sides}
+
+    [C]<@{nick}@> يخرج
+    [BC]{result}
+
+  coin_heads: |
+    [BC]🪙 العملة
+
+    [C]<@{nick}@>، ظهرت
+    [BC]صورة
+
+  coin_tails: |
+    [BC]🪙 العملة
+
+    [C]<@{nick}@>، ظهرت
+    [BC]كتابة
+
+  choose: |
+    [BC]🤔 اختياري
+
+    [BC]{pick}
+
+  choose_help: |
+    [BC]🤔 ماذا أختار؟
+
+    [C]أعطِ خيارات مفصولة بفاصلة أو «أو»
+    [C]مثال: /choose شاي أو قهوة
+
+  roulette_safe: |
+    [BC]🔫 الروليت الروسي
+
+    [C]*طقّة*...
+    [C]<@{nick}@> محظوظ اليوم 😮‍💨
+
+  roulette_bang: |
+    [BC]🔫 الروليت الروسي
+
+    [C]بانغ! 💥
+    [C]<@{nick}@> خرج من اللعبة ☠️
+
+  ball_ask: |
+    [BC]🎱 الكرة السحرية
+
+    [C]اطرح سؤالًا وسأجيب
+    [C]مثال: /8ball هل ستمطر؟
+
+  ball_0: "[BC]🎱\n[C]بالتأكيد"
+  ball_1: "[BC]🎱\n[C]أظن — نعم"
+  ball_2: "[BC]🎱\n[C]بلا شك"
+  ball_3: "[BC]🎱\n[C]على الأرجح"
+  ball_4: "[BC]🎱\n[C]اسأل لاحقًا"
+  ball_5: "[BC]🎱\n[C]لا تعتمد على ذلك"
+  ball_6: "[BC]🎱\n[C]مشكوك فيه جدًا"
+  ball_7: "[BC]🎱\n[C]جوابي لا"
+  ball_8: "[BC]🎱\n[C]غير واضح بعد"
+  ball_9: "[BC]🎱\n[C]لا تفكّر في ذلك"
+
+  percent_ask: |
+    [BC]📊 المقياس
+
+    [C]أخبرني بما تريد قياسه
+    [C]مثال: /percent الحظ
+
+  percent: |
+    [BC]📊 نتيجة القياس
+
+    [C]<@{nick}@> لديه
+    [BC]{value}%
+    [C]{what}
+
+  ship: |
+    [BC]💘 شيب اليوم
+
+    [C]<@{a}@>  ❤️  <@{b}@>
+    [BC]{love}%
+
+  rps_help: |
+    [BC]✊ حجر-ورقة-مقص
+
+    [C]اكتب: /rps حجر
+    [C]أو مقص، أو ورقة
+
+  rps_name_0: "🪨 حجر"
+  rps_name_1: "✂️ مقص"
+  rps_name_2: "📄 ورقة"
+
+  rps_win: |
+    [BC]✊ حجر-ورقة-مقص
+
+    [C]{user}  vs  {bot}
+    [C]<@{nick}@> فاز! 🎉
+
+  rps_lose: |
+    [BC]✊ حجر-ورقة-مقص
+
+    [C]{user}  vs  {bot}
+    [C]<@{nick}@> خسر 😢
+
+  rps_draw: |
+    [BC]✊ حجر-ورقة-مقص
+
+    [C]{user}  vs  {bot}
+    [C]تعادل 🤝
 
   who: |
-    [BC]🔮 من {question}
+    [BC]🔮 التنبؤ
 
-    إجابتي: <@{nick}@>
+    [C]من {question}؟
+    [C]جوابي: <@{nick}@>
 
   guess_start: |
     [BC]🔢 خمّن الرقم
 
-    اخترت رقمًا من 1 إلى 100.
-    اكتب /guess <رقم>
+    [C]اخترت رقمًا من 1 إلى 100
+    [C]اكتب /guess <رقم>
 
-  guess_need_number: "[BC]⚠ اكتب رقمًا من 1 إلى 100"
-  guess_higher: "[BC]⬆ أكبر"
-  guess_lower: "[BC]⬇ أصغر"
+  guess_need_number: |
+    [BC]🔢 خمّن الرقم
+
+    [C]اكتب رقمًا من 1 إلى 100
+
+  guess_higher: |
+    [BC]⬆ أكبر
+
+  guess_lower: |
+    [BC]⬇ أصغر
 
   guess_win: |
     [BC]🎉 إجابة صحيحة!
 
-    <@{nick}@> خمّنه في {tries} محاولات
+    [C]<@{nick}@> نجح
+    [C]في {tries} محاولات
 
 chat:
   settings: |
     [BC]⚙ إعدادات الدردشة
 
-    العنوان: {name}
-    الأعضاء: {members}
+    [C]— {name} —
+    [C]👥 {members} عضو
 
-    الترحيب: {greeting} ({greeting_type})
-    الوداع: {farewell}
-    الأوامر: {commands}
+    ✦ الترحيب: {greeting} ({greeting_type})
+    ✦ الوداع: {farewell}
+    ✦ الأوامر: {commands}
 
 community:
   settings: |
     [BC]⚙ إعدادات المجتمع
 
-    الاسم: {name}
-    الأعضاء: {members}
-    النشاط: {heat}
-    اللغة: {language}
+    [C]— {name} —
+    [C]👥 {members}  ·  🔥 {heat}
+    [C]🌐 {language}
 
-    رسالة الترحيب بالأعضاء الجدد: {welcome}
+    ✦ ترحيب الأعضاء الجدد: {welcome}
 
 ok:
   done: "[BC]✅ تم"
@@ -71,11 +194,12 @@ ok:
   farewell_text: "[BC]✅ تم تحديث نص الوداع"
   commands_on: "[BC]✅ تم تفعيل الأوامر"
   commands_off: "[BC]❌ تم تعطيل الأوامر"
-  welcome_on: "[BC]✅ تم تفعيل الترحيب بالأعضاء الجدد"
-  welcome_off: "[BC]❌ تم تعطيل الترحيب بالأعضاء الجدد"
+  welcome_on: "[BC]✅ تم تفعيل ترحيب الأعضاء الجدد"
+  welcome_off: "[BC]❌ تم تعطيل ترحيب الأعضاء الجدد"
   welcome_text: "[BC]✅ تم تحديث نص الترحيب"
 
 errors:
+  flood: "[BC]🚫 رسائل كثيرة جدًا، انتظر قليلًا"
   bad_bool: "[BC]⚠ حدّد مفعّل أو معطّل"
   empty_text: "[BC]⚠ لا يمكن ترك النص فارغًا"
   bad_url: "[BC]⚠ رابط غير صالح"

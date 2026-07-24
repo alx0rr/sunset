@@ -22,3 +22,14 @@ STARTUP = time()
 
 
 DB_PATH = os.getenv("DB_PATH", "bot.db")
+
+DEV_MODE = bool(int(os.getenv("DEV_MODE", "0")))
+
+DEV_USERS = [
+    "188d7b9a-0c98-4b54-9f98-c4ff434425c4",
+]
+
+
+FLOOD_LIMIT = 7
+FLOOD_WINDOW = 5.0
+IGNORE_TIME = 30.0

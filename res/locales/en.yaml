@@ -7,57 +7,180 @@ common:
   greeting_text: "Welcome, <@{nick}@>!\nYou're member #{members} in {title}!\nGlad to have you here"
   greeting_text_image: "{nick}, welcome to\n{title}\nYou're member #{members}"
 
+
+on_chat_invite: |
+  [BC]👋 Hey there!
+  [C]I'm Sunset — a bot for greetings, games, settings and more!
+  [C]Command list: /help
+
+
 help: |
-  [BC]Check out what I can do [HERE|https://teletype.in/@alx0rr/UUQbpo0VaLT]
+  [BC]Check out what I can do [HERE|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+
+
 
 games:
   roll: |
     [BC]🎲 Dice
 
-    <@{nick}@> rolls: {a} and {b}
-    Total: {total}
+    [C]<@{nick}@> rolls the dice
+    [BC]{a}  ✦  {b}
+    [C]Total: {total}
+
+  dice: |
+    [BC]🎲 d{sides} roll
+
+    [C]<@{nick}@> rolls
+    [BC]{result}
+
+  coin_heads: |
+    [BC]🪙 Coin flip
+
+    [C]<@{nick}@>, it's
+    [BC]Heads
+
+  coin_tails: |
+    [BC]🪙 Coin flip
+
+    [C]<@{nick}@>, it's
+    [BC]Tails
+
+  choose: |
+    [BC]🤔 My pick
+
+    [BC]{pick}
+
+  choose_help: |
+    [BC]🤔 What to pick?
+
+    [C]Give options separated by comma or "or"
+    [C]Example: /choose tea or coffee
+
+  roulette_safe: |
+    [BC]🔫 Russian roulette
+
+    [C]*click*...
+    [C]<@{nick}@> got lucky today 😮‍💨
+
+  roulette_bang: |
+    [BC]🔫 Russian roulette
+
+    [C]BANG! 💥
+    [C]<@{nick}@> is out ☠️
+
+  ball_ask: |
+    [BC]🎱 Magic ball
+
+    [C]Ask a question and I'll answer
+    [C]Example: /8ball will it rain?
+
+  ball_0: "[BC]🎱\n[C]It is certain"
+  ball_1: "[BC]🎱\n[C]I think so — yes"
+  ball_2: "[BC]🎱\n[C]Without a doubt"
+  ball_3: "[BC]🎱\n[C]Most likely"
+  ball_4: "[BC]🎱\n[C]Ask again later"
+  ball_5: "[BC]🎱\n[C]Don't count on it"
+  ball_6: "[BC]🎱\n[C]Very doubtful"
+  ball_7: "[BC]🎱\n[C]My answer is no"
+  ball_8: "[BC]🎱\n[C]Not clear yet"
+  ball_9: "[BC]🎱\n[C]Don't even think about it"
+
+  percent_ask: |
+    [BC]📊 Meter
+
+    [C]Tell me what to measure
+    [C]Example: /percent luck
+
+  percent: |
+    [BC]📊 Measurement result
+
+    [C]<@{nick}@> is
+    [BC]{value}%
+    [C]{what}
+
+  ship: |
+    [BC]💘 Ship of the day
+
+    [C]<@{a}@>  ❤️  <@{b}@>
+    [BC]{love}%
+
+  rps_help: |
+    [BC]✊ Rock-paper-scissors
+
+    [C]Type: /rps rock
+    [C]or scissors, or paper
+
+  rps_name_0: "🪨 rock"
+  rps_name_1: "✂️ scissors"
+  rps_name_2: "📄 paper"
+
+  rps_win: |
+    [BC]✊ Rock-paper-scissors
+
+    [C]{user}  vs  {bot}
+    [C]<@{nick}@> wins! 🎉
+
+  rps_lose: |
+    [BC]✊ Rock-paper-scissors
+
+    [C]{user}  vs  {bot}
+    [C]<@{nick}@> loses 😢
+
+  rps_draw: |
+    [BC]✊ Rock-paper-scissors
+
+    [C]{user}  vs  {bot}
+    [C]Draw 🤝
 
   who: |
-    [BC]🔮 Who {question}
+    [BC]🔮 Fortune telling
 
-    My answer: <@{nick}@>
+    [C]Who {question}?
+    [C]My answer: <@{nick}@>
 
   guess_start: |
     [BC]🔢 Guess the number
 
-    I picked a number from 1 to 100.
-    Type /guess <number>
+    [C]I picked a number from 1 to 100
+    [C]Type /guess <number>
 
-  guess_need_number: "[BC]⚠ Enter a number from 1 to 100"
-  guess_higher: "[BC]⬆ Higher"
-  guess_lower: "[BC]⬇ Lower"
+  guess_need_number: |
+    [BC]🔢 Guess the number
+
+    [C]Enter a number from 1 to 100
+
+  guess_higher: |
+    [BC]⬆ Higher
+
+  guess_lower: |
+    [BC]⬇ Lower
 
   guess_win: |
     [BC]🎉 Correct!
 
-    <@{nick}@> got it in {tries} tries
+    [C]<@{nick}@> got it
+    [C]in {tries} tries
 
 chat:
   settings: |
     [BC]⚙ Chat settings
 
-    Title: {name}
-    Members: {members}
+    [C]「 {name} 」
+    [C]👥 {members} members
 
-    Greetings: {greeting} ({greeting_type})
-    Farewells: {farewell}
-    Commands: {commands}
+    ✦ Greetings: {greeting} ({greeting_type})
+    ✦ Farewells: {farewell}
+    ✦ Commands: {commands}
 
 community:
   settings: |
     [BC]⚙ Community settings
 
-    Name: {name}
-    Members: {members}
-    Activity: {heat}
-    Language: {language}
+    [C]「 {name} 」
+    [C]👥 {members}  ·  🔥 {heat}
+    [C]🌐 {language}
 
-    Welcome message for new members: {welcome}
+    ✦ New member welcome: {welcome}
 
 ok:
   done: "[BC]✅ Done"
@@ -71,11 +194,12 @@ ok:
   farewell_text: "[BC]✅ Farewell text updated"
   commands_on: "[BC]✅ Commands enabled"
   commands_off: "[BC]❌ Commands disabled"
-  welcome_on: "[BC]✅ Welcome message for new members enabled"
-  welcome_off: "[BC]❌ Welcome message for new members disabled"
+  welcome_on: "[BC]✅ New member welcome enabled"
+  welcome_off: "[BC]❌ New member welcome disabled"
   welcome_text: "[BC]✅ Welcome text updated"
 
 errors:
+  flood: "[BC]🚫 Too many messages, wait a moment"
   bad_bool: "[BC]⚠ Specify on or off"
   empty_text: "[BC]⚠ Text can't be empty"
   bad_url: "[BC]⚠ Invalid link"
