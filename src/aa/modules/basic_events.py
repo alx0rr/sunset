@@ -97,3 +97,8 @@ async def on_leave(event: respObject.Event):
         members=info.membersCount,
     )
     await reply(event, text, [author.userId], reply=False)
+
+@client.event(args.wsEvent.on_chat_invite)
+async def on_invite(event: respObject.Event):
+    c = event.sub_client or event.client
+    await c.join_chat(event.message.chatId)

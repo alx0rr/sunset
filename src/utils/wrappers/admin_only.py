@@ -64,16 +64,22 @@ def is_chat_staff(chat: Chat, uid: str) -> bool:
     return is_chat_host(chat, uid) or is_chat_cohost(chat, uid)
 
 
+def _is_self(event) -> bool:
+    return _get_uid(event) == event.client.userId
+
 # ---------- wrapper factories ----------
 
+
 def _make_wrapper(check, locale_key: str = "errors.no_permission"):
-    """check(role: int) -> bool"""
     def decorator(func):
         @wraps(func)
         async def inner(*args, **kwargs):
             event = _get_event(*args, **kwargs)
-            role = _get_role(event)
 
+            if _is_self(event):
+                return await func(*args, **kwargs)
+
+            role = _get_role(event)
             if role is None or not check(role):
                 await _send(event, t(locale_key, comId=event.comId))
                 return
@@ -84,28 +90,24 @@ def _make_wrapper(check, locale_key: str = "errors.no_permission"):
 
 
 def _make_chat_wrapper(chat_check, locale_key: str = "errors.no_permission"):
-    """
-    chat_check(chat, uid) -> bool
-
-    Community staff (Leader/Curator/Agent) and global staff always pass —
-    chat-level permissions are a subset of theirs.
-    """
     def decorator(func):
         @wraps(func)
         async def inner(*args, **kwargs):
             event = _get_event(*args, **kwargs)
-            role = _get_role(event)
-            uid = _get_uid(event)
 
+            if _is_self(event):
+                return await func(*args, **kwargs)
+
+            role = _get_role(event)
             if role is not None and UserRole.is_privileged_role(role):
                 return await func(*args, **kwargs)
 
+            uid = _get_uid(event)
             chat = await _get_chat(event)
-            if uid and chat_check(chat.get("info"), uid):
+            if uid and chat and chat_check(chat.get("info"), uid):
                 return await func(*args, **kwargs)
 
             await _send(event, t(locale_key, comId=event.comId))
-            return
         return inner
     return decorator
 

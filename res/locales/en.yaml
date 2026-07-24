@@ -8,7 +8,7 @@ common:
   greeting_text_image: "{nick}, welcome to\n{title}\nYou're member #{members}"
 
 help: |
-  [BC]Check out what I can do [HERE|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+  [BC]Check out what I can do [HERE|https://teletype.in/@alx0rr/UUQbpo0VaLT]
 
 games:
   roll: |

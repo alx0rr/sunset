@@ -7,9 +7,18 @@ from src.utils.i18n import t
 from src.utils.wrappers.chat_settings import commands_enable_required
 
 
+
+
+
+@client.command(["/leave"])
+@commands_enable_required()
+async def on_leave(event: respObject.Event):
+    c = event.sub_client or event.client
+    await c.leave_chat(event.message.chatId)
+
 @client.command(["/invite"])
 @commands_enable_required()
-async def on_ping(event: respObject.Event):
+async def on_invite(event: respObject.Event):
     if event.message.content is None:
         await reply(event, t("errors.bad_url", comId=event.comId))
         return
