@@ -13,10 +13,15 @@ from src.utils.db import  init_db
 async def start():
     log.info("Starting bot...")
     load_locales()
+    log.info(f"[main] Locales loaded")
     await init_db()
+    log.info(f"[main] Db initialized")
     await on_startup_altamino()
+    log.info(f"[main] altamino client initialized")
     await warmup_cache()
+    log.info(f"[main] Cache warmuped")
     await load_image_assets()
+    log.info(f"[main] Assets loaded")
 
     await wait()
 
@@ -28,7 +33,7 @@ async def start():
     pending = [t for t in asyncio.all_tasks(loop=loop) if t is not asyncio.current_task()]
     
     if pending:
-        log.info(f"Cleaning up {len(pending)} pending tasks...")
+        log.info(f"[main] Cleaning up {len(pending)} pending tasks...")
         for task in pending:
             task.cancel()
         
@@ -40,4 +45,4 @@ if __name__ == "__main__":
         loop.run_until_complete(start())
     finally:
         loop.close()
-        log.info("Loop closed cleanly.")
+        log.info("[main] Loop closed cleanly.")
