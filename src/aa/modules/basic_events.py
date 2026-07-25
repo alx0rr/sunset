@@ -173,4 +173,6 @@ async def on_invite(event: respObject.Event):
 async def on_error(exception: Exception, event: respObject.Event):
 	log.error(f"[altamino] Exception: {exception}\n\n{format_exc()}")
 	c = event.sub_client or event.client
-	await c.send_message(event.message.chatId, t(f"errors.unknown", comId=event.comId))
+
+	if event.message:
+		await c.send_message(event.message.chatId, t(f"errors.unknown", comId=event.comId))

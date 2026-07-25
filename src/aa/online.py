@@ -4,8 +4,8 @@ import random
 from src import client
 from altamino.utils import log
 
-ONLINE_INTERVAL = 60        
-REFRESH_INTERVAL = 15 * 60
+ONLINE_INTERVAL = 60 * 4      
+REFRESH_INTERVAL = 60 * 15
 
 _communities: list[int] = []
 

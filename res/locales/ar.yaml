@@ -3,8 +3,8 @@ lang: "العربية"
 common:
   enabled: "✅ مفعّل"
   disabled: "❌ معطّل"
-  farewell_text: "وداعًا، <@{nick}@>"
-  greeting_text: "أهلًا بك، <@{nick}@>!\nأنت العضو رقم {members} في {title}!\nسعيد بانضمامك"
+  farewell_text: "وداعًا، <@@{nick}@>"
+  greeting_text: "أهلًا بك، <@@{nick}@>!\nأنت العضو رقم {members} في {title}!\nسعيد بانضمامك"
   greeting_text_image: "{nick}، أهلًا بك في\n{title}\nأنت العضو رقم {members}"
 
 
@@ -23,26 +23,26 @@ games:
   roll: |
     [BC]🎲 النرد
 
-    [C]<@{nick}@> يرمي النرد
+    [C]<@@{nick}@> يرمي النرد
     [BC]{a}  ✦  {b}
     [C]المجموع: {total}
 
   dice: |
     [BC]🎲 رمية d{sides}
 
-    [C]<@{nick}@> يخرج
+    [C]<@@{nick}@> يخرج
     [BC]{result}
 
   coin_heads: |
     [BC]🪙 العملة
 
-    [C]<@{nick}@>، ظهرت
+    [C]<@@{nick}@>، ظهرت
     [BC]صورة
 
   coin_tails: |
     [BC]🪙 العملة
 
-    [C]<@{nick}@>، ظهرت
+    [C]<@@{nick}@>، ظهرت
     [BC]كتابة
 
   choose: |
@@ -60,13 +60,13 @@ games:
     [BC]🔫 الروليت الروسي
 
     [C]*طقّة*...
-    [C]<@{nick}@> محظوظ اليوم 😮‍💨
+    [C]<@@{nick}@> محظوظ اليوم 😮‍💨
 
   roulette_bang: |
     [BC]🔫 الروليت الروسي
 
     [C]بانغ! 💥
-    [C]<@{nick}@> خرج من اللعبة ☠️
+    [C]<@@{nick}@> خرج من اللعبة ☠️
 
   ball_ask: |
     [BC]🎱 الكرة السحرية
@@ -94,14 +94,14 @@ games:
   percent: |
     [BC]📊 نتيجة القياس
 
-    [C]<@{nick}@> لديه
+    [C]<@@{nick}@> لديه
     [BC]{value}%
     [C]{what}
 
   ship: |
     [BC]💘 شيب اليوم
 
-    [C]<@{a}@>  ❤️  <@{b}@>
+    [C]<@@{a}@>  ❤️  <@@{b}@>
     [BC]{love}%
 
   rps_help: |
@@ -118,13 +118,13 @@ games:
     [BC]✊ حجر-ورقة-مقص
 
     [C]{user}  vs  {bot}
-    [C]<@{nick}@> فاز! 🎉
+    [C]<@@{nick}@> فاز! 🎉
 
   rps_lose: |
     [BC]✊ حجر-ورقة-مقص
 
     [C]{user}  vs  {bot}
-    [C]<@{nick}@> خسر 😢
+    [C]<@@{nick}@> خسر 😢
 
   rps_draw: |
     [BC]✊ حجر-ورقة-مقص
@@ -136,7 +136,7 @@ games:
     [BC]🔮 التنبؤ
 
     [C]من {question}؟
-    [C]جوابي: <@{nick}@>
+    [C]جوابي: <@@{nick}@>
 
   guess_start: |
     [BC]🔢 خمّن الرقم
@@ -158,7 +158,7 @@ games:
   guess_win: |
     [BC]🎉 إجابة صحيحة!
 
-    [C]<@{nick}@> نجح
+    [C]<@@{nick}@> نجح
     [C]في {tries} محاولات
 
 chat:

@@ -3,8 +3,8 @@ lang: "English"
 common:
   enabled: "✅ on"
   disabled: "❌ off"
-  farewell_text: "Goodbye, <@{nick}@>"
-  greeting_text: "Welcome, <@{nick}@>!\nYou're member #{members} in {title}!\nGlad to have you here"
+  farewell_text: "Goodbye, <@@{nick}@>"
+  greeting_text: "Welcome, <@@{nick}@>!\nYou're member #{members} in {title}!\nGlad to have you here"
   greeting_text_image: "{nick}, welcome to\n{title}\nYou're member #{members}"
 
 
@@ -23,26 +23,26 @@ games:
   roll: |
     [BC]🎲 Dice
 
-    [C]<@{nick}@> rolls the dice
+    [C]<@@{nick}@> rolls the dice
     [BC]{a}  ✦  {b}
     [C]Total: {total}
 
   dice: |
     [BC]🎲 d{sides} roll
 
-    [C]<@{nick}@> rolls
+    [C]<@@{nick}@> rolls
     [BC]{result}
 
   coin_heads: |
     [BC]🪙 Coin flip
 
-    [C]<@{nick}@>, it's
+    [C]<@@{nick}@>, it's
     [BC]Heads
 
   coin_tails: |
     [BC]🪙 Coin flip
 
-    [C]<@{nick}@>, it's
+    [C]<@@{nick}@>, it's
     [BC]Tails
 
   choose: |
@@ -60,13 +60,13 @@ games:
     [BC]🔫 Russian roulette
 
     [C]*click*...
-    [C]<@{nick}@> got lucky today 😮‍💨
+    [C]<@@{nick}@> got lucky today 😮‍💨
 
   roulette_bang: |
     [BC]🔫 Russian roulette
 
     [C]BANG! 💥
-    [C]<@{nick}@> is out ☠️
+    [C]<@@{nick}@> is out ☠️
 
   ball_ask: |
     [BC]🎱 Magic ball
@@ -94,14 +94,14 @@ games:
   percent: |
     [BC]📊 Measurement result
 
-    [C]<@{nick}@> is
+    [C]<@@{nick}@> is
     [BC]{value}%
     [C]{what}
 
   ship: |
     [BC]💘 Ship of the day
 
-    [C]<@{a}@>  ❤️  <@{b}@>
+    [C]<@@{a}@>  ❤️  <@@{b}@>
     [BC]{love}%
 
   rps_help: |
@@ -118,13 +118,13 @@ games:
     [BC]✊ Rock-paper-scissors
 
     [C]{user}  vs  {bot}
-    [C]<@{nick}@> wins! 🎉
+    [C]<@@{nick}@> wins! 🎉
 
   rps_lose: |
     [BC]✊ Rock-paper-scissors
 
     [C]{user}  vs  {bot}
-    [C]<@{nick}@> loses 😢
+    [C]<@@{nick}@> loses 😢
 
   rps_draw: |
     [BC]✊ Rock-paper-scissors
@@ -136,7 +136,7 @@ games:
     [BC]🔮 Fortune telling
 
     [C]Who {question}?
-    [C]My answer: <@{nick}@>
+    [C]My answer: <@@{nick}@>
 
   guess_start: |
     [BC]🔢 Guess the number
@@ -158,7 +158,7 @@ games:
   guess_win: |
     [BC]🎉 Correct!
 
-    [C]<@{nick}@> got it
+    [C]<@@{nick}@> got it
     [C]in {tries} tries
 
 chat:
