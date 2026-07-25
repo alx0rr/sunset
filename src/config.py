@@ -24,7 +24,7 @@ STARTUP = time()
 DB_PATH = os.getenv("DB_PATH", "bot.db")
 
 DEV_MODE = bool(int(os.getenv("DEV_MODE", "0")))
-STATIC_BOT_VERSION = "beta 0.0.2"
+STATIC_BOT_VERSION = "beta 0.0.5"
 BOT_VERSION = os.getenv("BOT_VERSION", STATIC_BOT_VERSION)
 
 DEV_USERS = [

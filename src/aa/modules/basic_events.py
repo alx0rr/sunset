@@ -165,8 +165,12 @@ async def on_leave(event: respObject.Event):
 @client.event(args.wsEvent.on_chat_invite)
 async def on_invite(event: respObject.Event):
 	c = event.sub_client or event.client
-	await c.join_chat(event.message.chatId)
-	await c.send_message(event.message.chatId, t(f"on_chat_invite", comId=event.comId))
+	chatId = event.message.chatId if event.message.chatId else event.payload.chatId
+	print(chatId, event.comId)
+	if not chatId:return
+
+	await c.join_chat(chatId)
+	await c.send_message(chatId, t(f"on_chat_invite", comId=event.comId))
 
 
 @client.error_handler()

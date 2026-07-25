@@ -2,6 +2,7 @@ from altamino import log, AsyncClient, set_log_level, enable_file_logging
 from asyncio import gather
 from src.utils.cache import TTLCache
 from src.utils.db import get_community_settings
+from asyncio import create_task
 
 from src.config import ALTAMINO_DEVICE_ID, ENABLE_FILE_LOGGING, LOG_LVL
 
@@ -36,3 +37,8 @@ async def _cache_community(comId):
 
 async def wait():
     await client.socket_wait()
+
+
+def request_shutdown():
+    log.info("[main] Shutdown signal received")
+    create_task(client.ws_shutdown())

@@ -44,3 +44,18 @@ async def on_invite(event: respObject.Event):
         return
 
     await reply(event, t("ok.done", comId=event.comId))
+
+
+
+@client.command(["/follow"])
+async def on_follow_cmd(event: respObject.Event):
+    c = event.sub_client or event.client
+    await c.follow(event.message.author.userId)
+    await reply(event, t("ok.done", comId=event.comId))
+
+
+@client.command(["/unfollow"])
+async def on_unfollow_cmd(event: respObject.Event):
+    c = event.sub_client or event.client
+    await c.unfollow(event.message.author.userId)
+    await reply(event, t("ok.done", comId=event.comId))

@@ -17,5 +17,5 @@ async def on_ping(event: respObject.Event):
 
 
 @client.command(["/help", "/commands", "/команды", "/помощь"])
-async def on_ping(event: respObject.Event):
+async def on_help_cmd(event: respObject.Event):
     await reply(event, t("help", comId=event.comId))
