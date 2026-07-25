@@ -15,7 +15,7 @@ on_chat_invite: |
 
 
 help: |
-  [BC]تعرّف على ما يمكنني فعله [من هنا|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+  [BC]تعرّف على ما يمكنني فعله [من هنا|https://teletype.in/@alx0rr/8KcMsNj9DwJ]
 
 
 
@@ -199,6 +199,7 @@ ok:
   welcome_text: "[BC]✅ تم تحديث نص الترحيب"
 
 errors:
+  unknown: "[BC]⚠ حدث خطأ غير متوقع. يرجى التواصل مع مطور البوت."
   flood: "[BC]🚫 رسائل كثيرة جدًا، انتظر قليلًا"
   bad_bool: "[BC]⚠ حدّد مفعّل أو معطّل"
   empty_text: "[BC]⚠ لا يمكن ترك النص فارغًا"

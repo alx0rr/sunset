@@ -8,9 +8,10 @@ from src.utils import reply, safe_format
 from src.utils.db import ChatSettings, get_chat_settings, get_community_settings, GreetingType
 from src import community_cache, chat_cache
 from src.utils.wrappers.chat_settings import ignore_yourself, chat_type_required
-from altamino import respObject, args, AsyncClient, AsyncSubClient
+from altamino import respObject, args, AsyncClient, AsyncSubClient, log
 from src.config import DEV_USERS, DEV_MODE, FLOOD_LIMIT, FLOOD_WINDOW, IGNORE_TIME
 from time import monotonic
+from traceback import format_exc
 
 
 _msg_times: dict[tuple, list[float]] = {}
@@ -166,3 +167,10 @@ async def on_invite(event: respObject.Event):
 	c = event.sub_client or event.client
 	await c.join_chat(event.message.chatId)
 	await c.send_message(event.message.chatId, t(f"on_chat_invite", comId=event.comId))
+
+
+@client.error_handler()
+async def on_error(exception: Exception, event: respObject.Event):
+	log.error(f"[altamino] Exception: {exception}\n\n{format_exc()}")
+	c = event.sub_client or event.client
+	await c.send_message(event.message.chatId, t(f"errors.unknown", comId=event.comId))

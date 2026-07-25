@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 
 from src.aa import client
+from src.config import BOT_VERSION
 from src.utils import ping_text, reply
 from altamino import respObject
 from src.utils.i18n import t
@@ -11,7 +12,7 @@ async def on_ping(event: respObject.Event):
     created = datetime.fromisoformat(event.message.createdTime.replace("Z", "+00:00"))
     latency_ms = (datetime.now(timezone.utc) - created).total_seconds() * 1000
 
-    text = "[BC]🏓Pong!\n\n" + ping_text(latency_ms).replace('`', "")
+    text = f"[BC]🏓Pong!\n[IC]version {BOT_VERSION}\n\n" + ping_text(latency_ms).replace('`', "")
     await reply(event, text)
 
 

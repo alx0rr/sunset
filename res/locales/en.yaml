@@ -15,7 +15,7 @@ on_chat_invite: |
 
 
 help: |
-  [BC]Check out what I can do [HERE|https://teletype.in/@alx0rr/hzMR-L3wnL-]
+  [BC]Check out what I can do [HERE|https://teletype.in/@alx0rr/UUQbpo0VaLT]
 
 
 
@@ -199,6 +199,7 @@ ok:
   welcome_text: "[BC]✅ Welcome text updated"
 
 errors:
+  unknown: "[BC]⚠ An unexpected error occurred. Please contact the bot developer."
   flood: "[BC]🚫 Too many messages, wait a moment"
   bad_bool: "[BC]⚠ Specify on or off"
   empty_text: "[BC]⚠ Text can't be empty"
